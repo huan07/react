@@ -21,9 +21,9 @@ const user = {
 // 2.JSX 也是一个表达式
 function getGreeting(user) {
     if (user) {
-        return <h4 >Hello, {formatName(user)}!</h4>
+        return <h4 >xxx, {formatName(user)}!</h4>
     }
-    return <h4 >Hello, Stranger.</h4>
+    return <h4 >xxx, Stranger.</h4>
 }
 
 const element = (
