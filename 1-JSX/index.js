@@ -7,7 +7,7 @@ import { render, } from 'react-dom';
 
 // const element = <h1>Hello, World! </h1>;
 
-// 用 花括号 把任意的 JavaScript 表达式 嵌入到 JSX 中
+// 1.用 花括号 把任意的 JavaScript 表达式 嵌入到 JSX 中
 
 function formatName(user) {
     return user.firstName + ',' + user.lastName;
@@ -18,7 +18,7 @@ const user = {
     lastName: 'lastName-h',
 };
 
-// JSX 也是一个表达式
+// 2.JSX 也是一个表达式
 function getGreeting(user) {
     if (user) {
         return <h4 >Hello, {formatName(user)}!</h4>
