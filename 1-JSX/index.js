@@ -35,3 +35,10 @@ const element = (
 );
 
 render(element, document.getElementById('app'))
+
+// 3. 用JSX指定属性值
+const element1 = <div tabIndex="0"></div>; // 属性名用驼峰属性命名
+
+const element2 = <img src={`url`}></img>
+
+// 4. JSX表示对象
