@@ -26,7 +26,7 @@ function tick() {
 class Clock2 extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { date: new Date() };
+        this.state = { date: new Date() }; // 唯一可以分配this.state的地方；其它地方需要this.setState({})
     }
 
     componentDidMount() {
