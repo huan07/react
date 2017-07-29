@@ -8,7 +8,7 @@ import { render, } from 'react-dom';
 // 组件就像JavaScript函数，组件可以接收任意输入（称为"props",this.props.children）；并返回React元素
 // props是禁止被修改的
 
-// 函数式组件和类组件(会有一些额外的特性)
+// 函数式组件和类组件(会有一些额外的特性=>局部状态和生命周期钩子)
 
 
 // 元素可以是代表DOM标签的React元素，或者是代表用户自定义的组件；

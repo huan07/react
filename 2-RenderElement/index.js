@@ -19,4 +19,4 @@ function tick() {
     render(element, document.getElementById('app'));
 }
 
-setInterval(tick, 1);
+setInterval(tick, 1000);
