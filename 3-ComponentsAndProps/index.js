@@ -13,7 +13,7 @@ import { render, } from 'react-dom';
 
 // 元素可以是代表DOM标签的React元素，或者是代表用户自定义的组件；
 
-// 总是以大写字母开头的，必须返回一个单独的根元素；
+// 组件总是以大写字母开头的，必须返回一个单独的根元素；
 
 
 function Welcome(props) {
