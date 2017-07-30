@@ -6,7 +6,7 @@ import React from 'react';
 import { render, } from 'react-dom';
 
 
-// 元素中调用 map() 需要 keys，keys在同辈元素中必须是唯一的；
+// 元素中调用 map() 才需要 keys，keys在同辈元素中必须是唯一的；
 
 function NumberList(props) {
     const numbers = props.numbers;
