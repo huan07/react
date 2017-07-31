@@ -19,10 +19,11 @@ function tick() {
     render(<Clock date={new Date()} />, document.getElementById('app'));
 }
 
-// setInterval(tick, 1);
+// setInterval(tick, 1000);
 
 
 // 2. props => state
+// setState() 自动将部分状态合并到当前状态，所以我们只需要调用更改的部分即可。
 class Clock2 extends React.Component {
     constructor(props) {
         super(props);

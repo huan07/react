@@ -5,7 +5,9 @@
 import React from 'react';
 import { render, } from 'react-dom';
 
-// 1.受控组件（input textarea select）
+// 1.受控组件（input textarea select 都接受一个 value 属性可以用来实现一个受控组件）
+
+// 2.处理多个输入元素
 
 class NameForm extends React.Component {
     constructor(props) {
@@ -36,7 +38,7 @@ class NameForm extends React.Component {
 
                 <label>
                     textarea:
-                    <textarea type="text" value={this.state.value} onChange={this.handleChange} />
+                    <textarea value={this.state.value} onChange={this.handleChange} />
                 </label>
                 <br /><br />
 
