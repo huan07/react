@@ -8,6 +8,7 @@ import { render, } from 'react-dom';
 // 1.受控组件（input textarea select 都接受一个 value 属性可以用来实现一个受控组件）
 
 // 2.处理多个输入元素
+// setState() 自动将部分状态合并到当前状态，所以我们只需要调用更改的部分即可。
 
 class NameForm extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class NameForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
+    handleChange(event) { /* 默认传参数 */
         this.setState({ value: event.target.value, })
     }
 
@@ -59,9 +60,54 @@ class NameForm extends React.Component {
     }
 }
 
+class NameForm2 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isGoing: true,
+            numberOfGuests: 2,
+        };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value,
+        });
+    }
+
+    render() {
+        return (
+            <form>
+                <label>
+                    is going:
+                    <input name="isGoing" type="checkbox"
+                           checked={this.state.isGoing}
+                           onChange={this.handleInputChange}
+                    />
+                </label>
+                <br /><br />
+
+                <label>
+                    Number of guests:
+                    <input
+                        name="numberOfGuests" type="number"
+                        value={this.state.numberOfGuests}
+                        onChange={this.handleInputChange}
+                    />
+                </label>
+                <br /><br />
+            </form>
+        )
+    }
+}
+
 render(
-    <NameForm />,
+    <NameForm2 />,
     document.getElementById('app')
 );
-
-
