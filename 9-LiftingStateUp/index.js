@@ -16,7 +16,7 @@ function toFahrenheit(celsius) {
     return (celsius * 9 / 5) + 32;
 }
 
-function tryConvert(temperature, convert) {
+function tryConvert(temperature, convert) { /*  传函数 ＝＝＝＝＝＝＝*/
     const input = parseFloat(temperature);
     if (Number.isNaN(input)) {
         return '';
@@ -46,6 +46,7 @@ class TemperatureInput extends React.Component {
 
     handleChange(event) {
         this.props.onTemperatureChange(event.target.value);
+        /*  ＝＝＝＝＝＝＝*/
     }
 
     render() {
@@ -72,10 +73,12 @@ class Calculator extends React.Component {
 
     handleCelsiusChange(temperature) {
         this.setState({ scale: 'c', temperature, });
+        /*＝＝＝＝＝＝＝＝＝＝＝＝*/
     }
 
     handleFahrenheitChange(temperature) {
         this.setState({ scale: 'f', temperature, });
+        /*＝＝＝＝＝＝＝＝＝＝＝＝＝*/
     }
 
     render() {
