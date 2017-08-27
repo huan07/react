@@ -48,7 +48,10 @@ const element2 = <img src={`url`}></img>
 // 2.遇到代码块（以 { 开头），就用 JavaScript 规则解析；遇到数组，直接展开数组的每一项；
 
 const names = ['baidu1', 'baidu2'];
-const namesDOM = [<h1>h1h1h1</h1>, <h2>h2h2h2</h2>];
+const namesDOM = [
+    <h1 key="1">Hello world!</h1>,
+    <h2 key="2">React is awesome</h2>
+];
 
 render(
     <div>
