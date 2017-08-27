@@ -34,7 +34,7 @@ const element = (
     </div>
 );
 
-render(element, document.getElementById('app'))
+//render(element, document.getElementById('app'));
 
 // 3. 用JSX指定属性值
 const element1 = <div tabIndex="0"></div>; // 属性名用驼峰属性命名
@@ -42,3 +42,23 @@ const element1 = <div tabIndex="0"></div>; // 属性名用驼峰属性命名
 const element2 = <img src={`url`}></img>
 
 // 4. JSX表示对象
+
+// 阮老师解释JSX语法：允许 HTML 与 JavaScript 的混写
+// 1.遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；
+// 2.遇到代码块（以 { 开头），就用 JavaScript 规则解析；遇到数组，直接展开数组的每一项；
+
+const names = ['baidu1', 'baidu2'];
+const namesDOM = [<h1>h1h1h1</h1>, <h2>h2h2h2</h2>];
+
+render(
+    <div>
+        {
+            names.map((item, index) => {
+                return <div key={index}>Hello,{item}</div>;
+            })
+        }
+        { names }
+        {namesDOM}
+    </div>,
+    document.getElementById('app')
+);
