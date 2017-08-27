@@ -15,7 +15,7 @@ class NameForm extends React.Component {
         super(props);
         this.state = { value: 'grapefruit', };
         this.handleSumbit = this.handleSumbit.bind(this);
-        /*函数的默认传参数可以在构造函数绑定this*/
+        /*函数的默认传参数=>event可以在构造函数绑定this*/
         this.handleChange = this.handleChange.bind(this);
     }
 
