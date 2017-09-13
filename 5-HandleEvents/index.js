@@ -11,27 +11,29 @@ import { render, } from 'react-dom';
 // 4.当元素被初始渲染的时候提供一个监听器＝》在构造函数上bind(this);
 
 function ActionLink() {
-    function handleClick(e) {
+    function handleClick(e) { //不用担心 跨浏览器的兼容性问题 e
         e.preventDefault();
         console.log('This link was clicked');
     }
 
     return (
         <a href="http://www.baidu.com" onClick={handleClick}>
-            Click me but will be prevented
+            Click me but will be prevented use e.preventDefault()
         </a>
     )
 }
 
-//render(<ActionLink />, document.getElementById('app'))
+//(<ActionLink />, document.getElementById('app'))
 
 class Toggle extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = { isToggleOn: true, };
 
-        // 这个绑定是必要的，使`this`在回调中起作用
+        // 这个绑定是必要的，使`this`在回调中起作用 code better
         this.handleClick = this.handleClick.bind(this);
+        // or
+        //this.handleClick=::this.handleClick;
     }
 
     handleClick() {
@@ -41,7 +43,7 @@ class Toggle extends React.Component {
     }
 
     handleClick2() {/*每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。*/
-        /*如果这个回调被作为 prop(属性) 传递给下级组件，这些组件可能需要额外的重复渲染*/
+        /*如果这个回调被作为 prop(属性) 传递给下级组件，这些下级组件可能需要额外的重复渲染*/
         /*会有性能问题*/
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
