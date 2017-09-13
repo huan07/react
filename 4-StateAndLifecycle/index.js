@@ -19,7 +19,7 @@ function tick() {
     render(<Clock date={new Date()} />, document.getElementById('app'));
 }
 
-// setInterval(tick, 1000);
+//setInterval(tick, 1000);
 
 
 // 2. props => state
@@ -36,7 +36,7 @@ class Clock2 extends React.Component {
             1000);
     }
 
-    componentWillUnmount() {
+    componentWillUnmount() { // 在组件被销毁时释放所占用的资源
         clearInterval(this.timerID);
     }
 
@@ -61,6 +61,19 @@ render(
     document.getElementById('app')
 );
 
-// 3. to add
+// 3. state(状态) 更新可能是异步的
+// this.props 和 this.state 可能是异步更新的 to read why latter
+
+// 错误
+this.setState({
+    counter: this.state.counter + this.props.increment,
+});
+
+// 正确
+this.setState((prevState, props) => ({
+    counter: prevState.counter + props.increment
+}));
+
+// 4.state(状态)更新会被合并 to read why latter
 
 
