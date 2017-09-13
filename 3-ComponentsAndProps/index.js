@@ -8,12 +8,13 @@ import { render, } from 'react-dom';
 // 组件就像JavaScript函数，组件可以接收任意输入（称为"props",this.props.children:组件的所有子节点）；并返回React元素
 // props是禁止被修改的 ============
 
-// 函数式组件和类组件(会有一些额外的特性=>局部状态和生命周期钩子)
-
+// class=>className,for=>htmlFor
 
 // 元素可以是代表DOM标签的React元素，或者是代表用户自定义的组件；
 
 // 组件总是以大写字母开头的，必须返回一个单独的根元素；
+
+// 函数式组件和类组件(会有一些额外的特性=>局部状态和生命周期钩子)
 
 
 function Welcome(props) {
@@ -36,9 +37,3 @@ const element = (
 );
 
 render(element, document.getElementById('app'));
-
-// 阮老师解读
-// 1.组件类的第一个字母必须大写，否则会报错
-// 2.组件类只能包含一个顶层标签，否则也会报错
-// 3.组件的属性可以在组件类的 this.props 对象上获取
-// class=>className,for=>htmlFor
