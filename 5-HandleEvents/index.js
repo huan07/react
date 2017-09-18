@@ -51,6 +51,8 @@ class Toggle extends React.Component {
         }));
     }
 
+    /*回调函数方法3 to add */
+
     render() {
         return (
             <div>
