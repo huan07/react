@@ -23,14 +23,14 @@ function ActionLink() {
     )
 }
 
-//(<ActionLink />, document.getElementById('app'))
+//render(<ActionLink />, document.getElementById('app'))
 
 class Toggle extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = { isToggleOn: true, };
 
-        // 这个绑定是必要的，使`this`在回调中起作用 code better
+        // 这个绑定是必要的，使`this`在回调中起作用 code better code better
         this.handleClick = this.handleClick.bind(this);
         // or
         //this.handleClick=::this.handleClick;
