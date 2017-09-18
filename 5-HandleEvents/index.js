@@ -36,15 +36,16 @@ class Toggle extends React.Component {
         //this.handleClick=::this.handleClick;
     }
 
-    handleClick() {
+    handleClick() { // 回调函数方法1 better code
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
     }
 
-    handleClick2() {/*每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。*/
-        /*如果这个回调被作为 prop(属性) 传递给下级组件，这些下级组件可能需要额外的重复渲染*/
-        /*会有性能问题*/
+    handleClick2() { // 回调函数方法2
+        /*每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。*/
+        /*如果这个回调被作为 prop(属性) 传递给下级组件，这些  下级组件  可能需要额外的重复渲染*/
+        /*props改变会触发 render() 会有性能问题*/
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
