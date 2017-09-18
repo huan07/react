@@ -88,7 +88,9 @@ class LoginControl extends React.Component {
  );*/
 
 
-// 3.更简短的语法实现条件渲染a.逻辑 && 操作符；b.条件操作符(三目运算符)
+// 3.包裹在{}中，更简短的语法实现条件渲染a.逻辑 && 操作符；b.条件操作符(三目运算符)
+/*因为在 JavaScript 中， true && expression 总是会评估为 expression ，
+ 而 false && expression 总是执行为 false 。*/
 
 function Mailbox(props) {
     const unreadMessages = props.unreadMessages;
