@@ -32,7 +32,7 @@ class Toggle extends React.Component {
 
         // 这个绑定是必要的，使`this`在回调中起作用 code better code better
         this.handleClick = this.handleClick.bind(this);
-        // or
+        // or !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //this.handleClick=::this.handleClick;
     }
 
@@ -45,7 +45,7 @@ class Toggle extends React.Component {
     handleClick2() { // 回调函数方法2
         /*每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。*/
         /*如果这个回调被作为 prop(属性) 传递给下级组件，这些  下级组件  可能需要额外的重复渲染*/
-        /*props改变会触发 render() 会有性能问题*/
+        /*props改变会触发 render() 会有性能问题  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));

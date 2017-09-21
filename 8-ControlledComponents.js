@@ -15,7 +15,7 @@ class NameForm extends React.Component {
         super(props);
         this.state = { value: 'grapefruit', };
         this.handleSumbit = this.handleSumbit.bind(this);
-        /*函数的默认传参数=>event可以在构造函数绑定this*/
+        /*  函数的默认传参数 =>event   可以在构造函数绑定this  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -23,7 +23,7 @@ class NameForm extends React.Component {
         this.setState({ value: event.target.value, })
     }
 
-    handleSumbit(event) {
+    handleSumbit(event) {/* 避免form的自带属性，一般将提交事件绑定在按钮 onClick触发 !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
         alert(`A name was submitted ${this.state.value}`);
         event.preventDefault();
     }
