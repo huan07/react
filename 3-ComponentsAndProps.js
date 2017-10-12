@@ -2,8 +2,9 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React from 'react';
-import { render, } from 'react-dom';
+import React, { Component }from 'react';
+import PropTypes from 'prop-types';
+import { render } from 'react-dom';
 
 // 组件就像JavaScript函数，组件可以接收任意输入（称为"props",this.props.children:组件的所有子节点）；并返回React元素
 // props是禁止被修改的 ============
@@ -27,12 +28,55 @@ class Welcome2 extends React.Component {
     }
 }
 
+
+const Greeting = ({ name, age }) => {
+    return (
+        <div>
+            <h2>{`name is ${name}`}</h2>
+            <h3>{`age is ${age}`}</h3>
+        </div>
+    );
+};
+
+Greeting.defaultProps = {
+    name: 'ycg',
+    age: 29,
+};
+
+Greeting.propTypes = {
+    name: PropTypes.string,
+    age: PropTypes.number,
+};
+
+class Greeting2 extends Component {
+    render() {
+        const { job } = this.props;
+
+        return (
+            <h2>{`job is ${job}`}</h2>
+        )
+    }
+}
+
+Greeting2.defaultProps = {
+    job: 'woman or a mother',
+};
+
+Greeting2.propTypes = {
+    job: PropTypes.string.isRequired,
+};
+
+// more propTypes
+// http://www.css88.com/react/docs/typechecking-with-proptypes.html
+
 const element = (
     <div>
         <h1>代表DOM标签的React元素</h1>
         <div>以下是代表用户自定义的组件</div>
         <Welcome name="yh" />
         <Welcome2 name="yc" />
+        <Greeting />
+        <Greeting2 job="beauty girl" />
     </div>
 );
 
