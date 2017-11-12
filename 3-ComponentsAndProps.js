@@ -13,21 +13,9 @@ import { render } from 'react-dom';
 
 // 元素可以是代表DOM标签的React元素，或者是代表用户自定义的组件；
 
-// 组件总是以大写字母开头的，必须返回一个单独的根元素；
+// 用户定义组件总是以大写字母开头的，必须返回一个单独的根元素；
 
 // 函数式组件和类组件(会有一些额外的特性=>局部状态和生命周期钩子)
-
-
-function Welcome(props) {
-    return <h1>hello, {props.name}</h1>;
-}
-
-class Welcome2 extends React.Component {
-    render() {
-        return <h1>hello, {this.props.name}</h1>;
-    }
-}
-
 
 const Greeting = ({ name, age }) => {
     return (
@@ -44,6 +32,7 @@ Greeting.defaultProps = {
 };
 
 Greeting.propTypes = {
+    /* 也会对默认属性 defaultProps 进行类型检测。 */
     name: PropTypes.string,
     age: PropTypes.number,
 };
@@ -53,7 +42,10 @@ class Greeting2 extends Component {
         const { job } = this.props;
 
         return (
-            <h2>{`job is ${job}`}</h2>
+            <h2>{`job is ${job}`}
+                <a href="http://www.css88.com/react/docs/typechecking-with-proptypes.html" target="_blank">more
+                    propTypes</a>
+            </h2>
         )
     }
 }
@@ -66,15 +58,10 @@ Greeting2.propTypes = {
     job: PropTypes.string.isRequired,
 };
 
-// more propTypes
-// http://www.css88.com/react/docs/typechecking-with-proptypes.html
-
 const element = (
     <div>
         <h1>代表DOM标签的React元素</h1>
         <div>以下是代表用户自定义的组件</div>
-        <Welcome name="yh" />
-        <Welcome2 name="yc" />
         <Greeting />
         <Greeting2 job="beauty girl" />
     </div>

@@ -23,15 +23,14 @@ function tick() {
 
 
 // 2. props => state
-// setState() 自动将部分状态合并到当前状态，所以我们只需要调用更改的部分即可。
 class Clock2 extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { date: new Date() }; // 唯一可以分配this.state的地方；其它地方需要this.setState({})
+        this.state = { date: new Date() };  // 1. 唯一可以分配this.state的地方；其它地方需要this.setState({})
     }
 
     componentDidMount() {
-        this.timerID = setInterval(/*??????*/
+        this.timerID = setInterval(
             () => this.tick(),
             1000);
     }
@@ -60,20 +59,19 @@ render(
     <Clock2 />,
     document.getElementById('app')
 );
-
-// 3. state(状态) 更新可能是异步的
-// this.props 和 this.state 可能是异步更新的 to read why latter
+// 2. state(状态) 更新可能是异步的 为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并
+// 3. 浅合并  参照30-Summary-AsyncStateProps.js
+// this.props(redux管理状态) 和 this.setState 可能是异步更新的 to read why latter
 
 // 错误
 this.setState({
     counter: this.state.counter + this.props.increment,
 });
 
-// 正确
+// 解决方式一：传入回调函数
 this.setState((prevState, props) => ({
     counter: prevState.counter + props.increment
 }));
 
-// 4.state(状态)更新会被合并 to read why latter
-
-
+// 解决方式二：第二个参数传入函数，依赖第一个参数的执行结果
+// setState 的第二个参数可以传一个回调函数，在 setState 生效之后调用 后面的操作依赖setState的执行结果
