@@ -59,9 +59,10 @@ render(
     <Clock2 />,
     document.getElementById('app')
 );
-// 2. state(状态) 更新可能是异步的 为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并
-// 3. 浅合并  参照30-Summary-AsyncStateProps.js
+// 2. state(状态) 更新可能是异步的； 为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并
+// 3. state(状态)更新会被合并 浅合并  参照40-Summary-AsyncStateProps.js
 // this.props(redux管理状态) 和 this.setState 可能是异步更新的 to read why latter
+// 数据向下流动
 
 // 错误
 this.setState({
