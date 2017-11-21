@@ -8,7 +8,7 @@ import { render, } from 'react-dom';
 // 1.受控组件（input textarea select 都接受一个 value 属性可以用来实现一个受控组件）
 
 // 2.处理多个输入元素
-// setState() 自动将部分状态合并到当前状态，所以我们只需要调用更改的部分即可。
+// setState() 自动将部分状态合并到当前状态，所以我们只需要调用 更改的部分 即可。！！！！！！！！！！！！！！！！！！
 
 class NameForm extends React.Component {
     constructor(props) {
