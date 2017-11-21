@@ -1,20 +1,28 @@
 import React from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 // https://babeljs.io/
 
+// 1. React 必须在作用域中  语法糖
 
-// 1.React 必须在作用域中
-// 2.对 JSX 类型可以使用点语法
-// 3.用户定义组件必须以大写字母开头
-// 4.在运行时选择类型
+// 2. 对 JSX 类型可以使用点语法
 
+// 3. 用户定义组件必须以大写字母开头
 
-// 5. props
-// 6. props(属性) 默认为 "true"
-// 7. 属性扩展 object类型的呃props
-// JSX的 children
+// 4. 在运行时选择类型 被调用时一定是大写的组件
 
+// // 5. props js表达式、字符串字面量
+
+// 6. props(属性) 默认值为 "true"
+
+// 7. 属性扩展 object类型的props
+
+// // 8. JSX的 children
+// i.字符串字面量
+// ii.多个组件
+// iii.表达式
+// iiii.回调函数 to_add
+// iiiii.不会被渲染的数据
 
 const MyComponent2 = {
     MyElement: (props) => {
@@ -27,7 +35,7 @@ const MyElement41 = (props) => {
 };
 
 const MyElement42 = (props) => {
-    return <h1>hello, {props.name}</h1>;
+    return <h1>hello, {props.age}</h1>;
 };
 
 const components = {
@@ -35,14 +43,13 @@ const components = {
     element2: MyElement42,
 };
 
-const Story = (props) => {  // to add
-    const XxxxYyy = components[props.element];
-    return <XxxxYyy element={props.x} />
+const Story = (props) => {  // to add example
+    const XxxxYyy = components[props.type];
+    return <XxxxYyy story={props.story} />
 };
 
-
-const MyElement5 = (props) => {
-    return <h1>hello, {props.age}</h1>;
+const MyElement5 = ({ name, age, description }) => {
+    return <h1>hello, {name}{age}{description}</h1>;
 };
 
 const MyElement6 = (props) => {  /* 不建议使用默认属性为true */
@@ -50,17 +57,23 @@ const MyElement6 = (props) => {  /* 不建议使用默认属性为true */
 };
 
 const MyElement7 = () => {
-    return <h1 firstName="ben" lastName="egg">属性扩展</h1>;
+    return <h1 firstName="ben" lastName="egg">属性扩展 good</h1>;
 };
-const MyElement72 = () => { /*  会使代码非常混乱 */
+const MyElement72 = () => { /* 不好 会使代码非常混乱 */
     const props = { firstName: 'ben2', lastName: 'egg2' };
-    return <h1 {...props}>属性扩展</h1>;
+    return <h1 {...props}>属性扩展 bad</h1>;
 };
 
-const MyElement8 = () => {  /* JSX会删除每行开头和结尾的空格，并且也会删除空行*/
+const MyElement8 = (props) => {
+    return <h1>{props.children}</h1>
+};
+
+const MyElement81 = () => {  /* JSX会删除每行开头和结尾的空格，并且也会删除空行*/
     return (
         <h1>
-            hello world!
+            hello
+
+            world!
 
         </h1>
     );
@@ -70,13 +83,12 @@ const MyElement82 = () => { /* 混合不同类型的 children(子元素)  */
     return (
         <div>
             <h1>blabla</h1>
-            <MyElement7 />
-            <MyElement72 />
+            <MyElement81 />
         </div>
     )
 };
 
-const MyElement83 = () => { /* JavaScript 表达式作为 Children(子元素) {} */
+const MyElement83 = () => {
     const todos = ['learn es6', 'learn redux'];
     return (
         <ul>
@@ -124,17 +136,16 @@ const MyElement85 = () => { /* null，undefined，false，true 都是有效的�
     );
 };
 
-
 const element = (
     <div>
-        <MyComponent2.MyElement name={'ycg'} />
-        <MyElement5 age="4" />
-        <MyElement5 age={'4'} />
+        <MyComponent2.MyElement name={'ycg_ycg'} />
+        <MyElement5 age={1 + 27} name="ycg" description={'a yong lady'} />
         <MyElement6 autocomplete />
         <MyElement6 autocomplete={true} />
         <MyElement7 />
         <MyElement72 />
-        <MyElement8 />
+        <MyElement8>字符串字面量 作为props.children</MyElement8>
+        <MyElement81 />
         <MyElement82 />
         <MyElement83 />
         <MyElement85 />
