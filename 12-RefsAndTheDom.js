@@ -5,17 +5,24 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-// DOM元素
-// React 将会在组件装载(mount)时，用 DOM 元素作为参数回调 ref 函数，在组件卸载(unmounts)时，使用 null 作为参数回调函数
+// ref属性接受回调函数 组件装载，卸载之后，回调函数会立即执行
 
-// 类
-// ref回调函数接受的参数是装载的组件实例
+// 1.DOM元素上添加ref
+// 组件装载(mount)时，用 DOM 元素作为参数回调 ref 函数，
+// 在组件卸载(unmounts)时，使用 null 作为参数回调函数
 
-// 函数式组件 内部引用DOM元素、类组件
+// 2.类
+// ref回调函数接受的参数是装载的 组件实例 to_add example
 
-// 对父组件暴露DOM节点 允许父代通过中间件将ref回调给子代的DOM节点 适用于类组件、函数式组件
+// 3.函数式组件 内部引用DOM元素、类组件
 
-class CustomTextInput extends Component {
+// 4.对父组件暴露DOM节点 允许父代通过中间件将ref回调给子代的DOM节点 适用于类组件、函数式组件
+
+// 5. 无法控制子组件，最后使用findDOMNode()
+
+// 但是state更为清晰！！！！！！！！！！！！！
+
+class CustomTextInput1 extends Component {
     constructor(props) {
         super(props);
         this.focusX = this.focusX.bind(this);
@@ -63,14 +70,29 @@ function CustomTextInput3(props) {
             />
         </div>
     )
-
-
 }
 
+function CustomTextInput4(props) {
+    return (
+        <div>
+            <input ref={props.inputRef} />
+        </div>
+    )
+}
+
+class Parent extends Component {
+    render() {
+        return (
+            <CustomTextInput4
+                inputRef={el => this.inputElement = el}
+            />
+        )
+    }
+}
 
 const element = (
     <div>
-        <CustomTextInput />
+        <CustomTextInput1 />
         <CustomTextInput3 />
     </div>
 );

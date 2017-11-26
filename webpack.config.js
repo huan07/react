@@ -7,7 +7,7 @@ module.exports = {
         //bundle5: './5-HandlingEvents.js',
         //bundle6: './6-ConditionalRendering.js',
         //bundle7: './7-ListsAndKeys.js',
-        bundle8: './8-ControlledComponents.js',
+        //bundle8: './8-ControlledComponents.js',
         //bundle8_2: './8-2-UncontrolledComponents.js',
         //bundle9: './9-LiftingStateUp.js',
         //bundle10: './10-CompositionVsInheritance.js'
@@ -15,6 +15,7 @@ module.exports = {
 
         //bundle11: './11-JSXInDepth.js',
         //bundle12: './12-RefsAndTheDom.js',
+        bundle13: './13-OptimizingPerformance',
 
         //bundle40: './40-Summary-AsyncStateProps.js',
 
