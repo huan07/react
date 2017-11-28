@@ -36,6 +36,7 @@ class OptimisePerformance1 extends Component {
 
 class OptimisePerformance2 extends PureComponent { // PureComponent会做浅比较 替换 OptimisePerformance1 shouldComponentUpdate实现方式 ！！！！！
     // 不需要自己写shouldComponentUpdate
+    // PureComponent  不能和   shouldComponentUpdate  一起使用，否则会warning ！！！！！！！！！！！！！！！！！！！！！
     state = { count: 1 };
 
     render() {
@@ -69,7 +70,7 @@ class WordAdder extends PureComponent {
         // 会造成error   ！！！！！！！！！！！！！！！！
         const words = this.state.words;
         words.push('marklar_error');
-        this.setState({ words, });  // 然而并没有去render ？？？PureComponent失效了，浅比较？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        this.setState({ words, });  // 然而并没有去render ？？？PureComponent失效了，浅比较？？？比较的是指针指向的地址 ？？？？？？？？？？？？？？？？？？？？？？？？？
     }
 
     render() {
@@ -83,7 +84,7 @@ class WordAdder extends PureComponent {
 }
 
 
-class ListOfWords2 extends PureComponent {
+class ListOfWords2 extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         if (this.props.words !== nextProps.words) {
@@ -99,7 +100,7 @@ class ListOfWords2 extends PureComponent {
     }
 }
 
-class WordAdder2 extends PureComponent {
+class WordAdder2 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -148,18 +149,26 @@ class WordAdder3 extends PureComponent {
             words: ['marklar'],
         };
         this.handleClick = ::this.handleClick;
+        this.handleClick2 = ::this.handleClick2;
     }
 
     handleClick() {
         this.setState(prevState => ({
-            words: prevState.words.concat(['marklar_betterUsed'])
+            words: prevState.words.concat(['marklar_betterUsedbutton1'])
+        }));
+    }
+
+    handleClick2() {
+        this.setState(prevState => ({
+            words: [...prevState.words, 'marklar_betterUsedbutton2']
         }));
     }
 
     render() {
         return (
             <div>
-                <button onClick={this.handleClick} />
+                <button onClick={this.handleClick}>button1</button>
+                <button onClick={this.handleClick2}>button2</button>
                 <ListOfWords3 words={this.state.words} />
             </div>
         )
@@ -173,8 +182,6 @@ const element = (
 
         <WordAdder error />
         <WordAdder2 notErrorButNotGood />
-
-
         <WordAdder3 betterUsed />
     </div>
 );

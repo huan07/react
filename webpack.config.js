@@ -15,9 +15,12 @@ module.exports = {
 
         //bundle11: './11-JSXInDepth.js',
         //bundle12: './12-RefsAndTheDom.js',
-        bundle13: './13-OptimizingPerformance',
+        //bundle13: './13-OptimizingPerformance',
+        //bundle14: './14-Reconciliation',
 
         //bundle40: './40-Summary-AsyncStateProps.js',
+        //bundle41: './41-Summary-LifecycleState.js',
+        //bundle42: './42-Summary-LifecycleProp.js',
 
     },
     output: {
