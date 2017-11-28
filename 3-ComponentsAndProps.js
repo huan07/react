@@ -2,7 +2,7 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React, { Component }from 'react';
+import React, { PureComponent }from 'react';
 import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 
@@ -32,12 +32,21 @@ Greeting.defaultProps = {
 };
 
 Greeting.propTypes = {
-    /* 也会对默认属性 defaultProps 进行类型检测。 */
+    /* 也会对默认属性 defaultProps 进行类型检测。  只会在开发环境检测， */
     name: PropTypes.string,
     age: PropTypes.number,
 };
 
-class Greeting2 extends Component {
+class Greeting2 extends PureComponent {
+
+    static defaultProps = {
+        job: 'woman or a mother',
+    };
+
+    static propTypes = {
+        job: PropTypes.string.isRequired,
+    };
+
     render() {
         const { job } = this.props;
 
@@ -50,20 +59,12 @@ class Greeting2 extends Component {
     }
 }
 
-Greeting2.defaultProps = {
-    job: 'woman or a mother',
-};
-
-Greeting2.propTypes = {
-    job: PropTypes.string.isRequired,
-};
-
 const element = (
     <div>
         <h1>代表DOM标签的React元素</h1>
         <div>以下是代表用户自定义的组件</div>
         <Greeting />
-        <Greeting2 job="beauty girl" />
+        <Greeting2 job="beauty girl" betterUsed />
     </div>
 );
 
