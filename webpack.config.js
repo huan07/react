@@ -19,8 +19,9 @@ module.exports = {
         //bundle14: './14-Reconciliation',
 
         //bundle40: './40-Summary-AsyncStateProps.js',
-        //bundle41: './41-Summary-LifecycleState.js',
-        //bundle42: './42-Summary-LifecycleProp.js',
+        bundle41: './41-Summary-LifecycleState.js',
+        //bundle42: './42-Summary-LifecycleState.js',
+        //bundle43: './43-Summary-LifecycleProps.js',
 
     },
     output: {
