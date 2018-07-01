@@ -3,21 +3,19 @@
  */
 
 import React, { PureComponent }from 'react';
-import PropTypes from 'prop-types';
 import { render } from 'react-dom';
+import PropTypes from 'prop-types';
 
 // 组件就像JavaScript函数，组件可以接收任意输入（称为"props",this.props.children:组件的所有子节点）；并返回React元素
-// props是禁止被修改的 ============
+// props是只读的！！ class => className,for => htmlFor
 
-// class=>className,for=>htmlFor
+// 元素：DOM标签的React元素，用户自定义的组件；
 
-// 元素可以是代表DOM标签的React元素，或者是代表用户自定义的组件；
+// 用户定义的组件名总是  以大写字母开头的，必须返回  一个单独的根元素；
 
-// 用户定义组件总是以大写字母开头的，必须返回一个单独的根元素；
+// 函数式组件和类组件(具备一些额外的特性 => 局部状态和生命周期钩子)
 
-// 函数式组件和类组件(会有一些额外的特性=>局部状态和生命周期钩子)
-
-const Greeting = ({ name, age }) => {
+const Greeting = ({ name, age }) =>{
     return (
         <div>
             <h2>{`name is ${name}`}</h2>
@@ -47,7 +45,7 @@ class Greeting2 extends PureComponent {
         job: PropTypes.string.isRequired,
     };
 
-    render() {
+    render(){
         const { job } = this.props;
 
         return (
@@ -61,8 +59,8 @@ class Greeting2 extends PureComponent {
 
 const element = (
     <div>
-        <h1>代表DOM标签的React元素</h1>
-        <div>以下是代表用户自定义的组件</div>
+        <h1>DOM标签的React元素</h1>
+        <div>用户自定义的组件</div>
         <Greeting />
         <Greeting2 job="beauty girl" betterUsed />
     </div>

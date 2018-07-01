@@ -2,7 +2,7 @@ module.exports = {
     entry: {
         //bundle1: './1-JSX.js',
         //bundle2: './2-RenderingElements.js',
-        //bundle3: './3-ComponentsAndProps.js',
+        bundle3: './3-ComponentsAndProps.js',
         //bundle4: './4-StateAndLifecycle.js',
         //bundle5: './5-HandlingEvents.js',
         //bundle6: './6-ConditionalRendering.js',
@@ -19,7 +19,7 @@ module.exports = {
         //bundle14: './14-Reconciliation',
 
         //bundle40: './40-Summary-AsyncStateProps.js',
-        bundle41: './41-Summary-LifecycleState.js',
+        //bundle41: './41-Summary-LifecycleState.js',
         //bundle42: './42-Summary-LifecycleState.js',
         //bundle43: './43-Summary-LifecycleProps.js',
 
