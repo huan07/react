@@ -127,7 +127,7 @@ render(
     document.getElementById('app3')
 );
 
-// 4.防止组件渲染（return null；不会影响组件生命周期方法的触发？？？？）
+// 4.防止组件渲染（return null；不会影响组件生命周期方法的触发？？）
 function WarningBanner(props){
     if (!props.warn) {
         return null;
