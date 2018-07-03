@@ -44,23 +44,31 @@ class Toggle extends PureComponent {
 
     handleClick2(){ // 回调函数方法2
         // 每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。
-        // 如果这个回调被作为 prop(属性) 传递给下级组件，这些  下级组件  可能需要额外的重复渲染
-        // props改变会触发 render() 会有性能问题
+        // 如果这个回调被作为prop传递给下级组件，这些 下级组件 可能需要额外的重复渲染，导致性能问题
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
     }
 
-    /*回调函数方法3 to add */
+    handleClick3 = () =>{ // 回调函数方法3
+        this.setState(prevState => ({
+            isToggleOn: !prevState.isToggleOn,
+        }));
+    };
 
     render(){
         return (
             <div>
-                <button key="1" type="button" onClick={this.handleClick}>
+                <button key="1" onClick={this.handleClick}>
                     {this.state.isToggleOn ? 'ON' : 'OFF'}
                 </button>
-                <button key="2" type="button" onClick={() => this.handleClick2()}>
+                <div></div>
+                <button key="2" onClick={() => this.handleClick2()}>
                     {this.state.isToggleOn ? 'ON handleClick2' : 'OFF handleClick2'}
+                </button>
+                <div></div>
+                <button key="3" onClick={this.handleClick3}>
+                    {this.state.isToggleOn ? 'ON handleClick3' : 'OFF handleClick3'}
                 </button>
             </div>
         );
@@ -68,5 +76,8 @@ class Toggle extends PureComponent {
 }
 
 render(<Toggle />, document.getElementById('app2'));
+
+
+// 将参数传递给事件处理程序 to add
 
 

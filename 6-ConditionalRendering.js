@@ -2,20 +2,20 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { render, } from 'react-dom';
 
 // 1.if / 条件操作符
 
-function UserGreeting(props) {
+function UserGreeting(props){
     return <h1>Welcome back!</h1>;
 }
 
-function GuestGreeting(props) {
+function GuestGreeting(props){
     return <h1>Please sign up.</h1>;
 }
 
-function Greeting(props) {
+function Greeting(props){
     const isLoggedIn = props.isLoggedIn;
     if (isLoggedIn) {
         return <UserGreeting />;
@@ -23,13 +23,13 @@ function Greeting(props) {
     return <GuestGreeting />;
 }
 
-/*render(
- <Greeting isLoggedIn={true}></Greeting>,
- document.getElementById('app')
- );*/
+render(
+    <Greeting isLoggedIn={true}></Greeting>,
+    document.getElementById('app')
+);
 
 // 2.创建一个有状态组件
-function LoginButton(props) {
+function LoginButton(props){
     return (
         <button onClick={props.onClick}>
             Login
@@ -37,7 +37,7 @@ function LoginButton(props) {
     );
 }
 
-function LogoutButton(props) {
+function LogoutButton(props){
     return (
         <button onClick={props.onClick}>
             Logout
@@ -45,8 +45,8 @@ function LogoutButton(props) {
     );
 }
 
-class LoginControl extends React.Component {
-    constructor(props, context) {
+class LoginControl extends PureComponent {
+    constructor(props, context){
         super(props, context);
         this.state = {
             isLoggedIn: false,
@@ -55,15 +55,15 @@ class LoginControl extends React.Component {
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
-    handleLoginClick() {
+    handleLoginClick(){
         this.setState({ isLoggedIn: true });
     }
 
-    handleLogoutClick() {
+    handleLogoutClick(){
         this.setState({ isLoggedIn: false });
     }
 
-    render() {
+    render(){
         const isLoggedIn = this.state.isLoggedIn;
 
         let button = null;
@@ -82,17 +82,17 @@ class LoginControl extends React.Component {
     }
 }
 
-/*render(
- <LoginControl />,
- document.getElementById('app')
- );*/
+render(
+    <LoginControl />,
+    document.getElementById('app2')
+);
 
 
-// 3.包裹在{}中，更简短的语法实现条件渲染a.逻辑 && 操作符；b.条件操作符(三目运算符)
-/*因为在 JavaScript 中， true && expression 总是会评估为 expression ，
- 而 false && expression 总是执行为 false 。*/
+// 3.包裹在{}中，更简短的语法实现条件渲染
+// a.逻辑 && 操作符；
+// b.条件操作符(三目运算符)
 
-function Mailbox(props) {
+function Mailbox(props){
     const unreadMessages = props.unreadMessages;
     return (
         <div>
@@ -122,13 +122,13 @@ function Mailbox(props) {
 }
 
 const messages = ['baidu', 'baidu2', 'baidu3'];
-/*render(
- <Mailbox unreadMessages={messages} />,
- document.getElementById('app')
- );*/
+render(
+    <Mailbox unreadMessages={messages} />,
+    document.getElementById('app3')
+);
 
 // 4.防止组件渲染（return null；不会影响组件生命周期方法的触发？？？？）
-function WarningBanner(props) {
+function WarningBanner(props){
     if (!props.warn) {
         return null;
     }
@@ -140,20 +140,20 @@ function WarningBanner(props) {
     );
 }
 
-class Page extends React.Component {
-    constructor(props, context) {
+class Page extends PureComponent {
+    constructor(props, context){
         super(props, context);
-        this.state = { showWarning: true, };
+        this.state = { showWarning: true };
         this.handleToggleClick = this.handleToggleClick.bind(this);
     }
 
-    handleToggleClick() {
+    handleToggleClick(){
         this.setState(prevState => ({
             showWarning: !prevState.showWarning,
-        }))
+        }));
     }
 
-    render() {
+    render(){
         return (
             <div>
                 <WarningBanner warn={this.state.showWarning} />
@@ -167,5 +167,5 @@ class Page extends React.Component {
 
 render(
     <Page />,
-    document.getElementById('app')
+    document.getElementById('app4')
 );
