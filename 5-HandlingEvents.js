@@ -2,17 +2,18 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { render, } from 'react-dom';
 
 // 1.使用驼峰命名，而不是全部小写
 // 2.通过JSX，传递一个函数作为事件处理程序，而不是一个字符串
-// 3.阻止默认行为，必须调用preventDefault，不能通过return false;
-// 4.当元素被初始渲染的时候提供一个监听器＝》在构造函数上bind(this);
+// 3.当元素被初始渲染的时候提供一个监听器 => 在构造函数上bind(this);
 
-function ActionLink() {
-    function handleClick(e) { //不用担心 跨浏览器的兼容性问题 e
+function ActionLink(){
+    function handleClick(e){ //
         e.preventDefault();
+        // 必须明确调用 preventDefault
+        // 不用担心 跨浏览器的兼容性问题 e
         console.log('This link was clicked');
     }
 
@@ -23,29 +24,28 @@ function ActionLink() {
     )
 }
 
-//render(<ActionLink />, document.getElementById('app'))
+render(<ActionLink />, document.getElementById('app'));
 
-class Toggle extends React.Component {
-    constructor(props, context) {
+class Toggle extends PureComponent {
+    constructor(props, context){
         super(props, context);
         this.state = { isToggleOn: true, };
 
-        // 这个绑定是必要的，使`this`在回调中起作用 code better code better
+        // 这个绑定是必要的，使`this`在回调中起作用！！ code better
         this.handleClick = this.handleClick.bind(this);
-        // or !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //this.handleClick=::this.handleClick;
     }
 
-    handleClick() { // 回调函数方法1 better code
+    handleClick(){ // 回调函数方法1 better code
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
     }
 
-    handleClick2() { // 回调函数方法2
-        /*每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。*/
-        /*如果这个回调被作为 prop(属性) 传递给下级组件，这些  下级组件  可能需要额外的重复渲染*/
-        /*props改变会触发 render() 会有性能问题  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    handleClick2(){ // 回调函数方法2
+        // 每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。
+        // 如果这个回调被作为 prop(属性) 传递给下级组件，这些  下级组件  可能需要额外的重复渲染
+        // props改变会触发 render() 会有性能问题
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
@@ -53,13 +53,12 @@ class Toggle extends React.Component {
 
     /*回调函数方法3 to add */
 
-    render() {
+    render(){
         return (
             <div>
                 <button key="1" type="button" onClick={this.handleClick}>
                     {this.state.isToggleOn ? 'ON' : 'OFF'}
                 </button>
-
                 <button key="2" type="button" onClick={() => this.handleClick2()}>
                     {this.state.isToggleOn ? 'ON handleClick2' : 'OFF handleClick2'}
                 </button>
@@ -68,6 +67,6 @@ class Toggle extends React.Component {
     }
 }
 
-render(<Toggle />, document.getElementById('app'));
+render(<Toggle />, document.getElementById('app2'));
 
 
