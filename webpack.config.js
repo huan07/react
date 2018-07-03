@@ -6,8 +6,8 @@ module.exports = {
         //bundle4: './4-StateAndLifecycle.js',
         //bundle5: './5-HandlingEvents.js',
         //bundle6: './6-ConditionalRendering.js',
-        bundle7: './7-ListsAndKeys.js',
-        //bundle8: './8-ControlledComponents.js',
+        //bundle7: './7-ListsAndKeys.js',
+        bundle8: './8-ControlledComponents.js',
         //bundle8_2: './8-2-UncontrolledComponents.js',
         //bundle9: './9-LiftingStateUp.js',
         //bundle10: './10-CompositionVsInheritance.js'

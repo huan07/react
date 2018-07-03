@@ -2,7 +2,7 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { render, } from 'react-dom';
 
 // 1.受控组件（input textarea select 都接受一个 value 属性可以用来实现一个受控组件）
@@ -10,8 +10,8 @@ import { render, } from 'react-dom';
 // 2.处理多个输入元素
 // setState() 自动将部分状态合并到当前状态，所以我们只需要调用 更改的部分 即可。！！！！！！！！！！！！！！！！！！
 
-class NameForm extends React.Component {
-    constructor(props) {
+class NameForm extends PureComponent {
+    constructor(props){
         super(props);
         this.state = { value: 'grapefruit', };
         this.handleSumbit = this.handleSumbit.bind(this);
@@ -19,16 +19,16 @@ class NameForm extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) { /* 默认传参数 */
+    handleChange(event){ /* 默认传参数 */
         this.setState({ value: event.target.value, })
     }
 
-    handleSumbit(event) {/* 避免form的自带属性，一般将提交事件绑定在按钮 onClick触发 !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+    handleSumbit(event){/* 避免form的自带属性，一般将提交事件绑定在按钮 onClick触发 !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
         alert(`A name was submitted ${this.state.value}`);
         event.preventDefault();
     }
 
-    render() {
+    render(){
         return (
             <form onSubmit={this.handleSumbit}>
                 <label>
@@ -60,8 +60,13 @@ class NameForm extends React.Component {
     }
 }
 
-class NameForm2 extends React.Component {
-    constructor(props) {
+render(
+    <NameForm />,
+    document.getElementById('app')
+);
+
+class NameForm2 extends PureComponent {
+    constructor(props){
         super(props);
         this.state = {
             isGoing: true,
@@ -71,7 +76,7 @@ class NameForm2 extends React.Component {
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-    handleInputChange(event) {
+    handleInputChange(event){
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -81,7 +86,7 @@ class NameForm2 extends React.Component {
         });
     }
 
-    render() {
+    render(){
         return (
             <form>
                 <label>
@@ -109,5 +114,5 @@ class NameForm2 extends React.Component {
 
 render(
     <NameForm2 />,
-    document.getElementById('app')
+    document.getElementById('app2')
 );
