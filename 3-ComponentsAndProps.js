@@ -24,7 +24,7 @@ const Greeting = ({ name, age }) =>{
     );
 };
 
-Greeting.defaultProps = {
+Greeting.defaultProps = { // 老的静态属性
     name: 'ycg',
     age: 29,
 };
@@ -37,7 +37,7 @@ Greeting.propTypes = {
 
 class Greeting2 extends PureComponent {
 
-    static defaultProps = {
+    static defaultProps = { // 新的静态属性
         job: 'woman or a mother',
     };
 
