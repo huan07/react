@@ -2,7 +2,7 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { render, } from 'react-dom';
 
 // 建议使用组合而不是继承以实现代码的重用
@@ -11,7 +11,7 @@ import { render, } from 'react-dom';
 // 使用 props(属性) 和 组合已经足够灵活来明确、安全的定制一个组件的外观和行为
 // props => 原始值、React 元素，或者函数
 
-function FancyBorder(props) {/* 允许其他组件通过嵌套 JSX 传递任意子组件给他 */
+function FancyBorder(props){ // 允许其他组件通过嵌套 JSX 传递任意子组件给他
     return (
         <div className={'FancyBorder FancyBorder-' + props.color}>
             {props.children}
@@ -19,7 +19,7 @@ function FancyBorder(props) {/* 允许其他组件通过嵌套 JSX 传递任意�
     )
 }
 
-function WelcomeDialog() {
+function WelcomeDialog(){
     return (
         <FancyBorder color="blue">
             <h1 className="Dialog-title">
@@ -32,14 +32,13 @@ function WelcomeDialog() {
     )
 }
 
-
-/*render(
- <WelcomeDialog />,
- document.getElementById('app')
- );*/
+render(
+    <WelcomeDialog />,
+    document.getElementById('app')
+);
 
 // 函数式定义的组件组合
-function Dialog(props) {
+function Dialog(props){
     return (
         <FancyBorder color="blue">
             <h1 className="Dialog-title">
@@ -53,7 +52,7 @@ function Dialog(props) {
     )
 }
 
-function WelcomeDialog2() {
+function WelcomeDialog2(){
     return (
         <Dialog
             title="WelcomeDialog2"
@@ -62,23 +61,22 @@ function WelcomeDialog2() {
     );
 }
 
-/*render(
- <WelcomeDialog2 />,
- document.getElementById('app')
- );*/
+render(
+    <WelcomeDialog2 />,
+    document.getElementById('app2')
+);
 
 
 // 类定义的组件组合
-class SignUpDialog extends React.Component {
-    constructor(props) {
+class SignUpDialog extends PureComponent {
+    constructor(props){
         super(props);
         this.state = { login: '' };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSignUp = this.handleSignUp.bind(this);
+        this.handleChange = ::this.handleChange;
+        this.handleSignUp = ::this.handleSignUp;
     }
 
-    render() {
+    render(){
         return (
             <Dialog title="SignUpDialog Mars Exploration Program"
                     message="SignUpDialog How should we refer to you?">
@@ -91,11 +89,11 @@ class SignUpDialog extends React.Component {
         )
     }
 
-    handleChange(e) {
-        this.setState({ login: e.target.value });
+    handleChange(event){
+        this.setState({ login: event.target.value });
     }
 
-    handleSignUp() {
+    handleSignUp(){
         alert(`Welcome aboard, ${this.state.login}!`);
     }
 
@@ -103,5 +101,5 @@ class SignUpDialog extends React.Component {
 
 render(
     <SignUpDialog />,
-    document.getElementById('app')
+    document.getElementById('app3')
 );

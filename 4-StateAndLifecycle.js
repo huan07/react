@@ -80,7 +80,7 @@ this.setState((prevState, props) => ({
 // setState 的第二个参数可以传一个回调函数，在 setState 生效之后调用 后面的操作依赖setState的执行结果
 
 
-// 2.为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并
+// 2.为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并！！
 // 参照40-Summary-AsyncStateProps.js
 
 

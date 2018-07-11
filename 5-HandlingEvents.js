@@ -13,7 +13,7 @@ function ActionLink(){
     function handleClick(e){ //
         e.preventDefault();
         // 必须明确调用 preventDefault
-        // 不用担心 跨浏览器的兼容性问题 e
+        // e 是一个合成的事件
         console.log('This link was clicked');
     }
 

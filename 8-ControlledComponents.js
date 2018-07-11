@@ -14,9 +14,9 @@ class NameForm extends PureComponent {
     constructor(props){
         super(props);
         this.state = { value: 'grapefruit', };
-        this.handleSumbit = this.handleSumbit.bind(this);
+        this.handleSumbit = ::this.handleSumbit;
         /*  函数的默认传参数 =>event   可以在构造函数绑定this  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange = ::this.handleChange;
     }
 
     handleChange(event){ /* 默认传参数 */
@@ -73,7 +73,7 @@ class NameForm2 extends PureComponent {
             numberOfGuests: 2,
         };
 
-        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleInputChange = ::this.handleInputChange;
     }
 
     handleInputChange(event){
