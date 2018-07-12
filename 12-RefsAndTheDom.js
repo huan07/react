@@ -2,7 +2,7 @@
  * Created by yanghuan on 17/11/12.
  */
 
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 
 // ref属性接受回调函数 组件装载，卸载之后，回调函数会立即执行
@@ -22,17 +22,17 @@ import { render } from 'react-dom';
 
 // 但是state更为清晰！！！！！！！！！！！！！
 
-class CustomTextInput1 extends Component {
-    constructor(props) {
+class CustomTextInput1 extends PureComponent {
+    constructor(props){
         super(props);
-        this.focusX = this.focusX.bind(this);
+        this.focusX = ::this.focusX;
     }
 
-    focusX() {
+    focusX(){
         this.textInput.focus();
     };
 
-    render() {
+    render(){
         return (
             <div>
                 <input
@@ -50,10 +50,10 @@ class CustomTextInput1 extends Component {
 }
 
 
-function CustomTextInput3(props) {
+function CustomTextInput3(props){
     let textInput = null; // 必须先声明，被ref回调引用
 
-    function handleClick() {
+    function handleClick(){
         textInput.focus();
     }
 
@@ -72,7 +72,7 @@ function CustomTextInput3(props) {
     )
 }
 
-function CustomTextInput4(props) {
+function CustomTextInput4(props){
     return (
         <div>
             <input ref={props.inputRef} />
@@ -80,8 +80,8 @@ function CustomTextInput4(props) {
     )
 }
 
-class Parent extends Component {
-    render() {
+class Parent extends PureComponent {
+    render(){
         return (
             <CustomTextInput4
                 inputRef={el => this.inputElement = el}

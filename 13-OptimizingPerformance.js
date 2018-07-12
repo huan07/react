@@ -71,7 +71,8 @@ class WordAdder extends PureComponent {
         // 会造成error   ！！！！！！！！！！！！！！！！
         const words = this.state.words;
         words.push('marklar_error');
-        this.setState({ words, });  // 然而并没有去render ？？？PureComponent失效了，浅比较？？？比较的是指针指向的地址 ？？？？？？？？？？？？？？？？？？？？？？？？？
+        this.setState({ words, });
+        // 然而并没有去render ？？？PureComponent失效了，浅比较？？？比较的是指针指向的地址 ？？
     }
 
     render(){
@@ -86,16 +87,6 @@ class WordAdder extends PureComponent {
 
 
 class ListOfWords2 extends Component {
-
-    shouldComponentUpdate(nextProps, nextState){
-        if (this.props.words !== nextProps.words) {
-            return true;
-        }
-        if (this.props.words === nextProps.words) {
-            return true;
-        }
-    }
-
     render(){
         return <div>{this.props.words.join(', ')}</div>;
     }
@@ -105,25 +96,15 @@ class WordAdder2 extends Component {
     constructor(props){
         super(props);
         this.state = {
-            words: ['marklar'],
+            words: ['marklar2'],
         };
         this.handleClick = ::this.handleClick;
     }
 
-    shouldComponentUpdate(nextProps, nextState){
-        if (this.state.words !== nextState.words) {
-            return true;
-        }
-        if (this.state.words === nextState.words) {
-            return true;
-        }
-    }
-
     handleClick(){
-        // 会造成error   ！！！！！！！！！！！！！！！！
         const words = this.state.words;
-        words.push('marklar_notErrorButNotGood');
-        this.setState({ words, });  // 去render ？要结合shouldComponentUpdate？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
+        words.push('marklar2_notErrorButNotGood'); // 突变对象 ，比较的是引用地址（没有变化），
+        this.setState({ words, });
     }
 
     render(){
@@ -153,13 +134,13 @@ class WordAdder3 extends PureComponent {
         this.handleClick2 = ::this.handleClick2;
     }
 
-    handleClick(){
+    handleClick(){ // 更新对象
         this.setState(prevState => ({
             words: prevState.words.concat(['marklar_betterUsedbutton1'])
         }));
     }
 
-    handleClick2(){
+    handleClick2(){ // 更新对象
         this.setState(prevState => ({
             words: [...prevState.words, 'marklar_betterUsedbutton2']
         }));
@@ -175,6 +156,9 @@ class WordAdder3 extends PureComponent {
         )
     }
 }
+
+// 使用 Immutable 数据结构
+// 追踪对象的改变 to add
 
 const element = (
     <div>
