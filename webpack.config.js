@@ -10,10 +10,10 @@ module.exports = {
         //bundle8: './8-ControlledComponents.js',
         //bundle8_2: './8-2-UncontrolledComponents.js',
         //bundle9: './9-LiftingStateUp.js',
-        bundle10: './10-CompositionVsInheritance.js'
+        //bundle10: './10-CompositionVsInheritance.js'
 
 
-        //bundle11: './11-JSXInDepth.js',
+        bundle11: './11-JSXInDepth.js',
         //bundle12: './12-RefsAndTheDom.js',
         //bundle13: './13-OptimizingPerformance',
         //bundle14: './14-Reconciliation',

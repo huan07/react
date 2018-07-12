@@ -7,7 +7,7 @@ import { render } from 'react-dom';
 
 // 2. 对 JSX 类型可以使用点语法
 
-// 3. 用户定义组件必须以大写字母开头
+// 3. 用户定义组件必须以大写字母开头！！才会被编译为 React.createElement
 
 // 4. 在运行时选择类型 被调用时一定是大写的组件
 
@@ -25,16 +25,16 @@ import { render } from 'react-dom';
 // iiiii.不会被渲染的数据
 
 const MyComponent2 = {
-    MyElement: (props) => {
+    MyElement: (props) =>{
         return <h1>hello, {props.name}</h1>;
     },
 };
 
-const MyElement41 = (props) => {
+const MyElement41 = (props) =>{
     return <h1>hello, {props.name}</h1>;
 };
 
-const MyElement42 = (props) => {
+const MyElement42 = (props) =>{
     return <h1>hello, {props.age}</h1>;
 };
 
@@ -43,32 +43,32 @@ const components = {
     element2: MyElement42,
 };
 
-const Story = (props) => {  // to add example
+const Story = (props) =>{  // to add example
     const XxxxYyy = components[props.type];
     return <XxxxYyy story={props.story} />
 };
 
-const MyElement5 = ({ name, age, description }) => {
+const MyElement5 = ({ name, age, description }) =>{
     return <h1>hello, {name}{age}{description}</h1>;
 };
 
-const MyElement6 = (props) => {  /* 不建议使用默认属性为true */
+const MyElement6 = (props) =>{  /* 不建议使用默认属性为true */
     return <h1>hello, {props.autocomplete}</h1>;
 };
 
-const MyElement7 = () => {
+const MyElement7 = () =>{
     return <h1 firstName="ben" lastName="egg">属性扩展 good</h1>;
 };
-const MyElement72 = () => { /* 不好 会使代码非常混乱 */
+const MyElement72 = () =>{ /* 不好 会使代码非常混乱 */
     const props = { firstName: 'ben2', lastName: 'egg2' };
     return <h1 {...props}>属性扩展 bad</h1>;
 };
 
-const MyElement8 = (props) => {
+const MyElement8 = (props) =>{
     return <h1>{props.children}</h1>
 };
 
-const MyElement81 = () => {  /* JSX会删除每行开头和结尾的空格，并且也会删除空行*/
+const MyElement81 = () =>{  /* JSX会删除每行开头和结尾的空格，并且也会删除空行*/
     return (
         <h1>
             hello
@@ -79,7 +79,7 @@ const MyElement81 = () => {  /* JSX会删除每行开头和结尾的空格，并
     );
 };
 
-const MyElement82 = () => { /* 混合不同类型的 children(子元素)  */
+const MyElement82 = () =>{ /* 混合不同类型的 children(子元素)  */
     return (
         <div>
             <h1>blabla</h1>
@@ -88,7 +88,7 @@ const MyElement82 = () => { /* 混合不同类型的 children(子元素)  */
     )
 };
 
-const MyElement83 = () => {
+const MyElement83 = () =>{
     const todos = ['learn es6', 'learn redux'];
     return (
         <ul>
@@ -101,29 +101,39 @@ const MyElement83 = () => {
     )
 };
 
-const MyElement84 = () => { /* 函数作为 Children(子元素)  to add  */
+const MyElement84 = () =>{ /* 函数作为 Children(子元素)  to add  */
 
 };
 
-const MyElement85 = () => { /* null，undefined，false，true 都是有效的的 children(子元素) 。但是并不会被渲染
+const MyElement85 = () =>{ /* null，undefined，false，true 都是有效的的 children(子元素) 。但是并不会被渲染
  0会被渲染的！！！！！！！！！！！！！！！！！！！！
  */
     return (
         <div>
-            <h1 />
-            <h1></h1>
-            <h1>{null}</h1>
-            <h1>{undefined}</h1>
-            <h1>{false}</h1>
-            <h1>{true}</h1>
-            <h2>{0}</h2>
-            <h2>
+            <h1 date-type="{}" />
+            <h1 date-type="{}"></h1>
+            <h1 date-type="{''}">{''}</h1>
+            <h1 date-type="{null}">{null}</h1>
+            <h1 date-type="{undefined}">{undefined}</h1>
+            <h1 date-type="{false}">{false}</h1>
+            <h1 date-type="{true}">{true}</h1>
+
+            <h2 date-type="{0   appear}">{0}</h2>
+            <h2 date-type="{NaN appear}">{NaN}</h2>
+
+            <h2 style={{ color: 'red' }}>
                 {
-                    [].length && <h1>渲染出[].length</h1>
+                    [].length && <h1>左项非布尔值，不会渲染出[].length</h1>
                 }
             </h2>
 
-            <h2>
+            <h2 style={{ color: 'blue' }}>
+                {
+                    [].length === 0 && <h1>左项是布尔值，才会渲染出[].length</h1>
+                }
+            </h2>
+
+            <h2 style={{ color: 'yellow' }}>
                 {
                     [].length > 0 && <h1>不会渲染出[].length</h1>
                 }
