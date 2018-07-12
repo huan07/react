@@ -13,9 +13,9 @@ module.exports = {
         //bundle10: './10-CompositionVsInheritance.js'
 
 
-        bundle11: './11-JSXInDepth.js',
+        //bundle11: './11-JSXInDepth.js',
         //bundle12: './12-RefsAndTheDom.js',
-        //bundle13: './13-OptimizingPerformance',
+        bundle13: './13-OptimizingPerformance',
         //bundle14: './14-Reconciliation',
 
         //bundle40: './40-Summary-AsyncStateProps.js',

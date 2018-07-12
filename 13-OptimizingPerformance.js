@@ -5,7 +5,7 @@
 import React, { Component, PureComponent } from 'react';
 import { render } from 'react-dom';
 
-function shouldComponentUpdate(nextProps, nextState) {
+function shouldComponentUpdate(nextProps, nextState){
     return true; // react default
 }
 
@@ -13,7 +13,8 @@ class OptimisePerformance1 extends Component {
 
     state = { count: 1 };
 
-    shouldComponentUpdate(nextProps, nextState) {  // 组件仅当 props.color 或 state.count 发生改变时需要更新！！！！！！！！
+    shouldComponentUpdate(nextProps, nextState){
+        // 组件仅当 props.color 或 state.count 发生改变时需要更新
         if (this.props.color !== nextProps.color) {
             return true;
         }
@@ -23,28 +24,28 @@ class OptimisePerformance1 extends Component {
         return false;
     }
 
-    render() {
+    render(){
         return (
             <button
                 onClick={() => this.setState(state => ({ count: state.count + 1 }))}
             >
-                count: { `${ this.state.count} color:${this.props.color}`}
+                count: {`${ this.state.count} color: ${this.props.color}`}
             </button>
         )
     }
 }
 
-class OptimisePerformance2 extends PureComponent { // PureComponent会做浅比较 替换 OptimisePerformance1 shouldComponentUpdate实现方式 ！！！！！
-    // 不需要自己写shouldComponentUpdate
-    // PureComponent  不能和   shouldComponentUpdate  一起使用，否则会warning ！！！！！！！！！！！！！！！！！！！！！
+class OptimisePerformance2 extends PureComponent {
+    // 不需要自己写shouldComponentUpdate继承了PureComponent的方法
+    // PureComponent  不能和   shouldComponentUpdate  一起使用，否则会warning
     state = { count: 1 };
 
-    render() {
+    render(){
         return (
             <button
                 onClick={() => this.setState(state => ({ count: state.count + 1 }))}
             >
-                count: { `${ this.state.count} color:${this.props.color}`}
+                count:{ this.state.count}color:{this.props.color}
             </button>
         )
     }
@@ -52,13 +53,13 @@ class OptimisePerformance2 extends PureComponent { // PureComponent会做浅比�
 
 
 class ListOfWords extends PureComponent {
-    render() {
+    render(){
         return <div>{this.props.words.join(', ')}</div>;
     }
 }
 
 class WordAdder extends PureComponent {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
             words: ['marklar'],
@@ -66,14 +67,14 @@ class WordAdder extends PureComponent {
         this.handleClick = ::this.handleClick;
     }
 
-    handleClick() {
+    handleClick(){
         // 会造成error   ！！！！！！！！！！！！！！！！
         const words = this.state.words;
         words.push('marklar_error');
         this.setState({ words, });  // 然而并没有去render ？？？PureComponent失效了，浅比较？？？比较的是指针指向的地址 ？？？？？？？？？？？？？？？？？？？？？？？？？
     }
 
-    render() {
+    render(){
         return (
             <div>
                 <button onClick={this.handleClick} />
@@ -86,7 +87,7 @@ class WordAdder extends PureComponent {
 
 class ListOfWords2 extends Component {
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState){
         if (this.props.words !== nextProps.words) {
             return true;
         }
@@ -95,13 +96,13 @@ class ListOfWords2 extends Component {
         }
     }
 
-    render() {
+    render(){
         return <div>{this.props.words.join(', ')}</div>;
     }
 }
 
 class WordAdder2 extends Component {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
             words: ['marklar'],
@@ -109,7 +110,7 @@ class WordAdder2 extends Component {
         this.handleClick = ::this.handleClick;
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    shouldComponentUpdate(nextProps, nextState){
         if (this.state.words !== nextState.words) {
             return true;
         }
@@ -118,14 +119,14 @@ class WordAdder2 extends Component {
         }
     }
 
-    handleClick() {
+    handleClick(){
         // 会造成error   ！！！！！！！！！！！！！！！！
         const words = this.state.words;
         words.push('marklar_notErrorButNotGood');
         this.setState({ words, });  // 去render ？要结合shouldComponentUpdate？？？？？？？？？？？？？？？？？？？？？？？？？？？？？
     }
 
-    render() {
+    render(){
         return (
             <div>
                 <button onClick={this.handleClick} />
@@ -137,13 +138,13 @@ class WordAdder2 extends Component {
 
 
 class ListOfWords3 extends PureComponent {
-    render() {
+    render(){
         return <div>{this.props.words.join(', ')}</div>;
     }
 }
 
 class WordAdder3 extends PureComponent {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
             words: ['marklar'],
@@ -152,19 +153,19 @@ class WordAdder3 extends PureComponent {
         this.handleClick2 = ::this.handleClick2;
     }
 
-    handleClick() {
+    handleClick(){
         this.setState(prevState => ({
             words: prevState.words.concat(['marklar_betterUsedbutton1'])
         }));
     }
 
-    handleClick2() {
+    handleClick2(){
         this.setState(prevState => ({
             words: [...prevState.words, 'marklar_betterUsedbutton2']
         }));
     }
 
-    render() {
+    render(){
         return (
             <div>
                 <button onClick={this.handleClick}>button1</button>
