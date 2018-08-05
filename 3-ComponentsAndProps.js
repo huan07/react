@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 // props是只读的！！ class => className,for => htmlFor
 
 // 元素：DOM标签的React元素，用户自定义的组件；
-
 // 用户定义的组件名总是  以大写字母开头的，必须返回  一个单独的根元素；
 
 // 函数式组件和类组件(具备一些额外的特性 => 局部状态和生命周期钩子)
@@ -49,11 +48,15 @@ class Greeting2 extends PureComponent {
         const { job } = this.props;
 
         return (
-            <h2>{`job is ${job}`}
-                <a href="http://www.css88.com/react/docs/typechecking-with-proptypes.html" target="_blank">more
-                    propTypes</a>
-            </h2>
-        )
+            <div>
+                <h2>
+                    {`job is ${job}`}
+                </h2>
+                <a href="http://www.css88.com/react/docs/typechecking-with-proptypes.html" target="_blank">
+                    more propTypes
+                </a>
+            </div>
+        );
     }
 }
 
