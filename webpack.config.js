@@ -2,8 +2,8 @@ module.exports = {
     entry: {
         //bundle1: './1-JSX.js',
         //bundle2: './2-RenderingElements.js',
-        bundle3: './3-ComponentsAndProps.js',
-        //bundle4: './4-StateAndLifecycle.js',
+        //bundle3: './3-ComponentsAndProps.js',
+        bundle4: './4-StateAndLifecycle.js',
         //bundle5: './5-HandlingEvents.js',
         //bundle6: './6-ConditionalRendering.js',
         //bundle7: './7-ListsAndKeys.js',

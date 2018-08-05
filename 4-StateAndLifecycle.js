@@ -3,7 +3,7 @@
  */
 
 import React, { PureComponent } from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 // 1.
 function Clock(props){
@@ -12,7 +12,7 @@ function Clock(props){
             <h1>Hello,world1</h1>
             <h2>It is {props.date.toLocaleTimeString()}</h2>
         </div>
-    )
+    );
 }
 
 function tick(){
@@ -57,7 +57,6 @@ class Clock2 extends PureComponent {
 
 render(
     (<div>
-        <Clock2 />
         <Clock2 />
     </div>)
     ,
