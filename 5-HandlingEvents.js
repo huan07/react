@@ -3,7 +3,7 @@
  */
 
 import React, { PureComponent } from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 // 1.使用驼峰命名，而不是全部小写
 // 2.通过JSX，传递一个函数作为事件处理程序，而不是一个字符串
@@ -21,7 +21,7 @@ function ActionLink(){
         <a href="http://www.baidu.com" onClick={handleClick}>
             Click me but will be prevented use e.preventDefault()
         </a>
-    )
+    );
 }
 
 render(<ActionLink />, document.getElementById('app'));
@@ -32,8 +32,8 @@ class Toggle extends PureComponent {
         this.state = { isToggleOn: true, };
 
         // 这个绑定是必要的，使`this`在回调中起作用！！ code better
-        this.handleClick = this.handleClick.bind(this);
-        //this.handleClick=::this.handleClick;
+        this.handleClick = ::this.handleClick;
+        //this.handleClick = this.handleClick.bind(this);
     }
 
     handleClick(){ // 回调函数方法1 better code
@@ -64,11 +64,11 @@ class Toggle extends PureComponent {
                 </button>
                 <div></div>
                 <button key="2" onClick={() => this.handleClick2()}>
-                    {this.state.isToggleOn ? 'ON handleClick2' : 'OFF handleClick2'}
+                    {this.state.isToggleOn ? 'ON' : 'OFF'} {'handleClick2'}
                 </button>
                 <div></div>
                 <button key="3" onClick={this.handleClick3}>
-                    {this.state.isToggleOn ? 'ON handleClick3' : 'OFF handleClick3'}
+                    {this.state.isToggleOn ? 'ON' : 'OFF '} {'handleClick3'}
                 </button>
             </div>
         );
@@ -79,5 +79,3 @@ render(<Toggle />, document.getElementById('app2'));
 
 
 // 将参数传递给事件处理程序 to add
-
-
