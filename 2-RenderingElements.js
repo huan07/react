@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 // 更新UI的唯一方法是创建一个新的元素
 // React只更新必需要更新的部分

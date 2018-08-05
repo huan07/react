@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 {
     const element = <h1>Hello, World! </h1>;
