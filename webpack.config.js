@@ -1,6 +1,6 @@
 module.exports = {
     entry: {
-        //bundle1: './1-JSX.js',
+        bundle1: './1-JSX.js',
         //bundle2: './2-RenderingElements.js',
         //bundle3: './3-ComponentsAndProps.js',
         //bundle4: './4-StateAndLifecycle.js',
@@ -14,7 +14,7 @@ module.exports = {
 
 
         //bundle11: './11-JSXInDepth.js',
-        bundle12: './12-RefsAndTheDom.js',
+        //bundle12: './12-RefsAndTheDom.js',
         //bundle13: './13-OptimizingPerformance',
         //bundle14: './14-Reconciliation',
 
