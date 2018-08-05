@@ -50,7 +50,7 @@ class Toggle extends PureComponent {
         }));
     }
 
-    handleClick3 = () =>{ // 回调函数方法3
+    handleClick3 = () =>{ // 回调函数方法3   被解析到constructor函数内部，作为实例方法
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
