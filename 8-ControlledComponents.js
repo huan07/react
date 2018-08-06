@@ -92,9 +92,11 @@ class NameForm2 extends PureComponent {
             <form style={{ margin: '40px 0' }}>
                 <label>
                     is going:
-                    <input name="isGoing" type="checkbox"
-                           checked={this.state.isGoing}
-                           onChange={this.handleInputChange}
+                    <input
+                        name="isGoing"
+                        type="checkbox"
+                        checked={this.state.isGoing}
+                        onChange={this.handleInputChange}
                     />
                 </label>
                 <br />
@@ -102,7 +104,8 @@ class NameForm2 extends PureComponent {
                 <label>
                     Number of guests:
                     <input
-                        name="numberOfGuests" type="number"
+                        name="numberOfGuests"
+                        type="number"
                         value={this.state.numberOfGuests}
                         onChange={this.handleInputChange}
                     />
