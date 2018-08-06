@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 
 // 调用 map() 或者 数组的元素是dom 才需要 keys，keys在同辈元素中必须是唯一的；
