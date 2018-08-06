@@ -3,27 +3,28 @@
  */
 
 import React, { PureComponent } from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 // 1.受控组件（input textarea select 都接受一个 value 属性可以用来实现一个受控组件）
 
 // 2.处理多个输入元素
-// setState() 自动将部分状态合并到当前状态，所以我们只需要调用 更改的部分 即可。！！！！！！！！！！！！！！！！！！
+// setState() 自动将部分状态合并到当前状态，所以我们只需要调用 更改的部分 即可。
 
 class NameForm extends PureComponent {
     constructor(props){
         super(props);
-        this.state = { value: 'grapefruit', };
-        this.handleSumbit = ::this.handleSumbit;
-        /*  函数的默认传参数 =>event   可以在构造函数绑定this  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+        this.state = { value: 'grapefruit' };
+
+        /*  函数的默认传参数 =>event   可以在构造函数绑定this */
         this.handleChange = ::this.handleChange;
+        this.handleSumbit = ::this.handleSumbit;
     }
 
     handleChange(event){ /* 默认传参数 */
         this.setState({ value: event.target.value, })
     }
 
-    handleSumbit(event){/* 避免form的自带属性，一般将提交事件绑定在按钮 onClick触发 !!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+    handleSumbit(event){/* 避免form的自带属性，一般将提交事件绑定在按钮 onClick触发 */
         alert(`A name was submitted ${this.state.value}`);
         event.preventDefault();
     }
@@ -35,13 +36,13 @@ class NameForm extends PureComponent {
                     input:
                     <input type="text" value={this.state.value} onChange={this.handleChange} />
                 </label>
-                <br /><br />
+                <br />
 
                 <label>
                     textarea:
                     <textarea value={this.state.value} onChange={this.handleChange} />
                 </label>
-                <br /><br />
+                <br />
 
                 <label>
                     select:
@@ -52,7 +53,7 @@ class NameForm extends PureComponent {
                         <option value="mango">Mango</option>
                     </select>
                 </label>
-                <br /><br />
+                <br />
 
                 <input type="submit" value="Submit" />
             </form>
@@ -88,7 +89,7 @@ class NameForm2 extends PureComponent {
 
     render(){
         return (
-            <form>
+            <form style={{ margin: '40px 0' }}>
                 <label>
                     is going:
                     <input name="isGoing" type="checkbox"
@@ -96,7 +97,7 @@ class NameForm2 extends PureComponent {
                            onChange={this.handleInputChange}
                     />
                 </label>
-                <br /><br />
+                <br />
 
                 <label>
                     Number of guests:
@@ -106,9 +107,8 @@ class NameForm2 extends PureComponent {
                         onChange={this.handleInputChange}
                     />
                 </label>
-                <br /><br />
             </form>
-        )
+        );
     }
 }
 
