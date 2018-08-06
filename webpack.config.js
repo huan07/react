@@ -15,9 +15,13 @@ module.exports = {
 
         //bundle13: './13-context',
         //bundle14: './14-ErrorBoundaries',
-        bundle15: './15-ForwardingRefs',
+        //bundle15: './15-ForwardingRefs',
+        //bundle16: './16-Fragments',
+        //bundle17: './17-HigherOrderComponents',
+        bundle18: './18-Integrating',
+        //bundle19: './19-JSXInDepth.js',
+        
 
-        //bundle11: './11-JSXInDepth.js',
         //bundle12: './12-RefsAndTheDom.js',
         //bundle13_: './13_-OptimizingPerformance',
         //bundle14_: './14_-Reconciliation',
