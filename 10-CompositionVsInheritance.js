@@ -3,7 +3,7 @@
  */
 
 import React, { PureComponent } from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 // 建议使用组合而不是继承以实现代码的重用
 // 使用特别的 children prop 来直接传递 子元素到 他们的输出中
@@ -16,7 +16,7 @@ function FancyBorder(props){ // 允许其他组件通过嵌套 JSX 传递任意�
         <div className={'FancyBorder FancyBorder-' + props.color}>
             {props.children}
         </div>
-    )
+    );
 }
 
 function WelcomeDialog(){
@@ -29,7 +29,7 @@ function WelcomeDialog(){
                 Thank you for visiting our spacecraft!
             </p>
         </FancyBorder>
-    )
+    );
 }
 
 render(
@@ -49,7 +49,7 @@ function Dialog(props){
             </p>
             {props.children}
         </FancyBorder>
-    )
+    );
 }
 
 function WelcomeDialog2(){
@@ -86,7 +86,7 @@ class SignUpDialog extends PureComponent {
                     Sign Me Up!
                 </button>
             </Dialog>
-        )
+        );
     }
 
     handleChange(event){

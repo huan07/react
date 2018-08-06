@@ -3,7 +3,7 @@
  */
 
 import React, { PureComponent } from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 // 同一个数据的变化需要几个不同的组件来反映。
 // 建议提升 共享的状态 到它们最近的祖先组件中（状态提升）
@@ -60,7 +60,7 @@ class TemperatureInput extends PureComponent {
                        onChange={this.handleChange}
                 />
             </fieldset>
-        )
+        );
     }
 }
 
