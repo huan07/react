@@ -3,7 +3,7 @@
  */
 
 import React, { PureComponent } from 'react';
-import { render, } from 'react-dom';
+import { render } from 'react-dom';
 
 // 1.if / 条件操作符
 
@@ -51,8 +51,8 @@ class LoginControl extends PureComponent {
         this.state = {
             isLoggedIn: false,
         };
-        this.handleLoginClick = this.handleLoginClick.bind(this);
-        this.handleLogoutClick = this.handleLogoutClick.bind(this);
+        this.handleLoginClick = ::this.handleLoginClick;
+        this.handleLogoutClick = ::this.handleLogoutClick;
     }
 
     handleLoginClick(){
@@ -74,7 +74,7 @@ class LoginControl extends PureComponent {
         }
 
         return (
-            <div>
+            <div style={{ margin: '40px 0' }}>
                 <Greeting isLoggedIn={isLoggedIn}></Greeting>
                 {button}
             </div>
@@ -118,7 +118,7 @@ function Mailbox(props){
                     null
             }
         </div>
-    )
+    );
 }
 
 const messages = ['baidu', 'baidu2', 'baidu3'];
@@ -144,7 +144,7 @@ class Page extends PureComponent {
     constructor(props, context){
         super(props, context);
         this.state = { showWarning: true };
-        this.handleToggleClick = this.handleToggleClick.bind(this);
+        this.handleToggleClick = ::this.handleToggleClick;
     }
 
     handleToggleClick(){
@@ -161,7 +161,7 @@ class Page extends PureComponent {
                     {this.state.showWarning ? 'Hide' : 'Show'}
                 </button>
             </div>
-        )
+        );
     }
 }
 
