@@ -18,12 +18,11 @@ module.exports = {
         //bundle15: './15-ForwardingRefs',
         //bundle16: './16-Fragments',
         //bundle17: './17-HigherOrderComponents',
-        bundle18: './18-Integrating',
+        //bundle18: './18-Integrating',
         //bundle19: './19-JSXInDepth.js',
-        
+        bundle20: './20-OptimizingPerformance',
 
         //bundle12: './12-RefsAndTheDom.js',
-        //bundle13_: './13_-OptimizingPerformance',
         //bundle14_: './14_-Reconciliation',
 
         //bundle40: './40-Summary-AsyncStateProps.js',
