@@ -29,7 +29,7 @@ render(<ActionLink />, document.getElementById('app'));
 class Toggle extends PureComponent {
     constructor(props, context){
         super(props, context);
-        this.state = { isToggleOn: true, };
+        this.state = { isToggleOn: true };
 
         // 这个绑定是必要的，使`this`在回调中起作用！！ code better
         this.handleClick = ::this.handleClick;
