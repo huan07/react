@@ -4,10 +4,13 @@ module.exports = {
         //bundle2: './2-RenderingElements.js',
         //bundle3: './3-ComponentsAndProps.js',
         //bundle4: './4-StateAndLifecycle.js',
+        bundle4_2:'./4_2-faq-ajax.js',
+
+
         //bundle5: './5-HandlingEvents.js',
         //bundle6: './6-ConditionalRendering.js',
         //bundle7: './7-ListsAndKeys.js',
-        bundle8: './8-ControlledComponents.js',
+        //bundle8: './8-ControlledComponents.js',
         //bundle8_2: './8-2-UncontrolledComponents.js',
         //bundle9: './9-LiftingStateUp.js',
         //bundle10: './10-CompositionVsInheritance.js'
@@ -29,6 +32,9 @@ module.exports = {
         //bundle41: './41-Summary-LifecycleState.js',
         //bundle42: './42-Summary-LifecycleState.js',
         //bundle43: './43-Summary-LifecycleProps.js',
+
+
+
 
     },
     output: {
