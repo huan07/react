@@ -6,10 +6,6 @@ import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 
 // 1.受控组件（input textarea select 都接受一个 value 属性可以用来实现一个受控组件）
-
-// 2.处理多个输入元素
-// setState() 自动将部分状态合并到当前状态，所以我们只需要调用 更改的部分 即可。
-
 class NameForm extends PureComponent {
     constructor(props){
         super(props);
@@ -34,13 +30,20 @@ class NameForm extends PureComponent {
             <form onSubmit={this.handleSumbit}>
                 <label>
                     input:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    <input
+                        type="text"
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                    />
                 </label>
                 <br />
 
                 <label>
                     textarea:
-                    <textarea value={this.state.value} onChange={this.handleChange} />
+                    <textarea
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                    />
                 </label>
                 <br />
 
@@ -66,6 +69,9 @@ render(
     document.getElementById('app')
 );
 
+
+// 2.处理多个输入元素
+// setState() 自动将部分状态合并到当前状态，所以我们只需要调用 更改的部分 即可。
 class NameForm2 extends PureComponent {
     constructor(props){
         super(props);
