@@ -6,7 +6,6 @@ import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 
 // 1.if / 条件操作符
-
 function UserGreeting(props){
     return <h1>Welcome back!</h1>;
 }
@@ -99,9 +98,9 @@ function Mailbox(props){
             <h1>hello!</h1>
             {
                 unreadMessages.length > 0 &&
-                <h2>
+                (<h2>
                     you have {unreadMessages.length} unread messages.
-                </h2>
+                </h2>)
             }
             {
                 unreadMessages.length > 2
@@ -112,9 +111,9 @@ function Mailbox(props){
             }
             {
                 unreadMessages.length > 2 ?
-                    <h2>
+                    (<h2>
                         you have {unreadMessages.length} unread messages.
-                    </h2> :
+                    </h2>) :
                     null
             }
         </div>
