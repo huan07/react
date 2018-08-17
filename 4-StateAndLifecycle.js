@@ -29,7 +29,8 @@ class Clock2 extends PureComponent {
     constructor(props){
         super(props);
         this.state = { date: new Date() };
-        // a. 唯一可以分配this.state的地方；
+        // a. 不要直接修改 state(状态)，不会重新渲染一个组件
+        // 唯一可以分配this.state的地方；
         // 其它地方需要this.setState({})
     }
 
@@ -66,10 +67,12 @@ render(
 );
 
 
+// b.this.props 和 this.state 可能是异步更新的，
+// b2.你不能依赖他们的值计算下一个state(状态)
+
 // 错误
 this.setState({
     counter: this.state.counter + this.props.increment,
-    // b.this.props 和 this.state 可能是异步更新的，你不能依赖他们的值计算下一个state(状态)
 });
 
 // 解决方式一：传入回调函数
@@ -81,10 +84,10 @@ this.setState((prevState, props) => ({
 // setState 的第二个参数可以传一个回调函数，在 setState 生效之后调用 后面的操作依赖setState的执行结果
 
 
-// c.为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并！！
+// b1.为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并！！
 // 参照40-Summary-AsyncStateProps.js
 
 
-// d.数据向下流动，单向数据流
+// c.数据向下流动，单向数据流
 // state被称为 本地状态 或 封装状态的，不能被以外的任何组件访问。
 // 向下传递作为子组件的props
