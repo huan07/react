@@ -63,7 +63,7 @@ class Toggle extends PureComponent {
                     {this.state.isToggleOn ? 'ON' : 'OFF'}
                 </button>
                 <div></div>
-                <button key="2" onClick={() => this.handleClick2()}>
+                <button key="2" onClick={(e) => this.handleClick2(e)}>
                     {this.state.isToggleOn ? 'ON' : 'OFF'} {'handleClick2'}
                 </button>
                 <div></div>
