@@ -10,11 +10,11 @@ import { render } from 'react-dom';
 // 3.当元素被初始渲染的时候提供一个监听器 => 在构造函数上bind(this);
 
 function ActionLink(){
-    function handleClick(e){ //
+    function handleClick(e){
         e.preventDefault();
         // 必须明确调用 preventDefault
         // e 是一个合成的事件
-        console.log('This link was clicked');
+        alert('This link was clicked');
     }
 
     return (
@@ -42,19 +42,20 @@ class Toggle extends PureComponent {
         }));
     }
 
-    handleClick2(){ // 回调函数方法2
+
+    handleClick2 = () =>{ // 回调函数方法2   被解析到constructor函数内部，作为实例方法
+        this.setState(prevState => ({
+            isToggleOn: !prevState.isToggleOn,
+        }));
+    };
+
+    handleClick3(e){ // 回调函数方法3
         // 每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。
         // 如果这个回调被作为prop传递给下级组件，这些 下级组件 可能需要额外的重复渲染，导致性能问题
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
     }
-
-    handleClick3 = () =>{ // 回调函数方法3   被解析到constructor函数内部，作为实例方法
-        this.setState(prevState => ({
-            isToggleOn: !prevState.isToggleOn,
-        }));
-    };
 
     render(){
         return (
@@ -63,12 +64,14 @@ class Toggle extends PureComponent {
                     {this.state.isToggleOn ? 'ON' : 'OFF'}
                 </button>
                 <div></div>
-                <button key="2" onClick={(e) => this.handleClick2(e)}>
-                    {this.state.isToggleOn ? 'ON' : 'OFF'} {'handleClick2'}
+
+                <button key="3" onClick={this.handleClick2}>
+                    {this.state.isToggleOn ? 'ON' : 'OFF '} {'handleClick2'}
                 </button>
                 <div></div>
-                <button key="3" onClick={this.handleClick3}>
-                    {this.state.isToggleOn ? 'ON' : 'OFF '} {'handleClick3'}
+
+                <button key="2" onClick={(e) => this.handleClick3(e)}>
+                    {this.state.isToggleOn ? 'ON' : 'OFF'} {'handleClick3'}
                 </button>
             </div>
         );
