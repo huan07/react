@@ -5,6 +5,8 @@
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 
+
+// state 和 props 类似，但是它是私有的，并且由组件本身完全控制
 // 1.
 function Clock(props){
     return (
@@ -23,7 +25,6 @@ setInterval(tick, 1000);
 
 
 // 2. props => state
-// state 和 props 类似，但是它是私有的，并且由组件本身完全控制
 class Clock2 extends PureComponent {
     constructor(props){
         super(props);
