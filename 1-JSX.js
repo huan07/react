@@ -6,7 +6,11 @@ import React from 'react';
 import { render } from 'react-dom';
 
 {
-    const element = <h1>Hello, World! </h1>;
+    const element = (
+        <h1>
+            Hello, World!
+        </h1>
+    );
 }
 
 {
@@ -23,9 +27,9 @@ import { render } from 'react-dom';
     // 2.JSX 也是一个表达式
     function getGreeting(user){
         if (user) {
-            return <h4 >Hello, {formatName(user)}!</h4>
+            return <h4 >Hello, {formatName(user)}!</h4>;
         }
-        return <h4 >Hello, Stranger.</h4>
+        return <h4 >Hello, Stranger.</h4>;
     }
 
     const element = (
@@ -41,7 +45,7 @@ import { render } from 'react-dom';
 
 {
     // 3. 用JSX指定属性值，子元素
-    const element = <div tabIndex="0"></div>; // 属性名用驼峰属性命名 className
+    const element = <div tabIndex="0"></div>; // 属性名用驼峰属性命名className
 
     const url = `https://www.baidu.com/img/baidu_jgylogo3.gif`;
     const element2 = <img src={url} />;

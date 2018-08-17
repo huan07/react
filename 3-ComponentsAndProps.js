@@ -7,10 +7,12 @@ import { render } from 'react-dom';
 import PropTypes from 'prop-types';
 
 // 组件就像JavaScript函数，组件可以接收任意输入（称为"props",this.props.children:组件的所有子节点）；并返回React元素
-// props是只读的！！ class => className,for => htmlFor
+// React严格的规则：所有React组件都必须是纯函数，并禁止修改其自身 props。
+// class => className,for => htmlFor
 
-// 元素：DOM标签的React元素，用户自定义的组件；
-// 用户定义的组件名总是  以大写字母开头的，必须返回  一个单独的根元素；
+// React元素：
+// DOM标签，
+// 用户自定义的组件（组件名总是以大写字母开头的，必须返回  一个单独的根元素）；
 
 // 函数式组件和类组件(具备一些额外的特性 => 局部状态和生命周期钩子)
 
