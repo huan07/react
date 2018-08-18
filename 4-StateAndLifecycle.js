@@ -54,7 +54,7 @@ class Clock2 extends PureComponent {
                 <h1>Hello,world1</h1>
                 <h2>It is {this.state.date.toLocaleTimeString()}</h2>
             </div>
-        )
+        );
     }
 }
 
@@ -70,21 +70,8 @@ render(
 // b.this.props 和 this.state 可能是异步更新的，
 // b2.你不能依赖他们的值计算下一个state(状态)
 
-// 错误
-this.setState({
-    counter: this.state.counter + this.props.increment,
-});
-
-// 解决方式一：传入回调函数
-this.setState((prevState, props) => ({
-    counter: prevState.counter + props.increment
-}));
-
-// 解决方式二：第二个参数传入函数，依赖第一个参数的执行结果
-// setState 的第二个参数可以传一个回调函数，在 setState 生效之后调用 后面的操作依赖setState的执行结果
-
-
-// b1.为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并！！
+// b1.为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并！！一次调用render()
+// 参照4_3
 // 参照40-Summary-AsyncStateProps.js
 
 
