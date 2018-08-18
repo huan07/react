@@ -35,11 +35,6 @@ module.exports = {
         //bundle12: './12-RefsAndTheDom.js',
         //bundle14_: './14_-Reconciliation',
 
-        //bundle40: './40-Summary-AsyncStateProps.js',
-        //bundle41: './41-Summary-LifecycleState.js',
-        //bundle42: './42-Summary-LifecycleState.js',
-        //bundle43: './43-Summary-LifecycleProps.js',
-
 
     },
     output: {
