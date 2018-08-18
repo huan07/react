@@ -7,7 +7,8 @@ module.exports = {
         //bundle4: './4-StateAndLifecycle.js',
         //bundle4_2:'./4_2-faq-ajax.js',
         //bundle4_3:'./4_3-faq-state.js',
-        bundle4_4: './4_4-react-component-lifecycle.js',
+        //bundle4_4: './4_4-lifecycle-mount.js',
+        bundle4_5: './4_5-lifecycle-update.js',
 
 
         //bundle5: './5-HandlingEvents.js',
