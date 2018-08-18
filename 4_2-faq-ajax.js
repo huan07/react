@@ -7,13 +7,16 @@ import { render } from 'react-dom';
 import axios from 'axios';
 
 
-const List = function(props){
-    const liComponent = props.items.map(({ id, name, price }) =>
-        <li key={id}>{`${name} => ${price}`}</li>
-    );
-
-    return <ul>{liComponent}</ul>;
-};
+const List = (props) =>
+    <ul>
+        {
+            props.items.map(({ id, name, price }) =>
+                <li key={id}>
+                    {`${name} => ${price}`}
+                </li>
+            )
+        }
+    </ul>;
 
 
 const Result = function(props){

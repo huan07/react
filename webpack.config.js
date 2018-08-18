@@ -3,11 +3,16 @@ module.exports = {
         //bundle1: './1-JSX.js',
         //bundle2: './2-RenderingElements.js',
         //bundle3: './3-ComponentsAndProps.js',
+
         //bundle4: './4-StateAndLifecycle.js',
-        bundle4_2:'./4_2-faq-ajax.js',
+        //bundle4_2:'./4_2-faq-ajax.js',
 
 
         //bundle5: './5-HandlingEvents.js',
+        //bundle5_2: './5_2-faq-functions.js',
+        bundle5_2_2: './5_2_2-faq-functions.js',
+
+
         //bundle6: './6-ConditionalRendering.js',
         //bundle7: './7-ListsAndKeys.js',
         //bundle8: './8-ControlledComponents.js',
@@ -32,8 +37,6 @@ module.exports = {
         //bundle41: './41-Summary-LifecycleState.js',
         //bundle42: './42-Summary-LifecycleState.js',
         //bundle43: './43-Summary-LifecycleProps.js',
-
-
 
 
     },
