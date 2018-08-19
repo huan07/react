@@ -8,7 +8,7 @@ module.exports = {
         //bundle4_2:'./4_2-faq-ajax.js',
         //bundle4_3:'./4_3-faq-state.js',
         //bundle4_4: './4_4-lifecycle-mount.js',
-        bundle4_5: './4_5-lifecycle-update.js',
+        //bundle4_5: './4_5-lifecycle-update.js',
 
 
         //bundle5: './5-HandlingEvents.js',
@@ -24,7 +24,8 @@ module.exports = {
         //bundle10: './10-CompositionVsInheritance.js'
 
 
-        //bundle13: './13-context',
+        Context: './Context.js',
+        //Context2: './Context2.js',
         //bundle14: './14-ErrorBoundaries',
         //bundle15: './15-ForwardingRefs',
         //bundle16: './16-Fragments',
