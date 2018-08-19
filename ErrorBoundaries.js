@@ -4,8 +4,9 @@
 import React, { PureComponent }from 'react';
 import { render } from 'react-dom';
 
-// 仅有类组件可以成为错误边界，类组件具备生命周期
-// 仅可以捕获其子组件的错误
+// 仅有类组件可以成为错误边界，类组件具备生命周期。
+// 错误边界(Error Boundaries) 仅可以捕获其子组件的错误。错误边界无法捕获其自身的错误。
+// 在 子组件树 的任何位置捕获 JavaScript 错误，记录这些错误，并显示一个备用 UI ，而不是使整个组件树崩溃。
 // 无法 捕获事件处理器内部的错误(用try/catch)
 
 {
@@ -58,7 +59,8 @@ import { render } from 'react-dom';
                         <h2>Something went wrong.</h2>
                         <details style={{ whiteSpace: 'pre-wrap' }}>
                             {this.state.error && this.state.error.toString()}
-                            <br />
+                            <hr />
+                            <hr />
                             {this.state.errorInfo.componentStack}
                         </details>
                     </div>
