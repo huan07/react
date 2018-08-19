@@ -24,9 +24,9 @@ module.exports = {
         //bundle10: './10-CompositionVsInheritance.js'
 
 
-        Context: './Context.js',
+        //Context: './Context.js',
         //Context2: './Context2.js',
-        //bundle14: './14-ErrorBoundaries',
+        ErrorBoundaries: './ErrorBoundaries',
         //bundle15: './15-ForwardingRefs',
         //bundle16: './16-Fragments',
         //bundle17: './17-HigherOrderComponents',
