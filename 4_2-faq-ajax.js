@@ -6,7 +6,6 @@ import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 import axios from 'axios';
 
-
 const List = (props) =>
     <ul>
         {
@@ -17,7 +16,6 @@ const List = (props) =>
             )
         }
     </ul>;
-
 
 const Result = function(props){
     const { isLoading, items, error } = props;
