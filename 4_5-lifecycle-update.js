@@ -23,14 +23,16 @@ import { render }from 'react-dom';
         }
 
         componentWillReceiveProps(nextProps){
-            console.log('props改变 1.1 组件接受到新的props时被调用，可以 setState');
+            console.log('组件内属性props不可以更改，只能通过父组件传递，props改变 ' +
+                '1.1 组件接受到新的props时被调用，可以 setState');
         }
 
         shouldComponentUpdate(nextProps, nextState){
             // 性能优化点
             // 使用内置的PureComponent 浅比较
             // 无需编写shouldComponentUpdate
-            console.log('state改变 1.2 组件接受到新的props/state时被调用, ' +
+            console.log('setState, 导致state改变 ' +
+                '1.2 组件接受到新的props/state时被调用, ' +
                 '比较是否相同，' +
                 'return true才执行更新虚拟DOM, 否则退出');
             return true;
