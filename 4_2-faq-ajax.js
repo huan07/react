@@ -41,6 +41,10 @@ const Result = function(props){
             };
         }
 
+        render(){
+            return <Result {...this.state} />;
+        }
+
         componentDidMount(){
             fetch('./items.json')
                 .then(response => response.json())
@@ -51,10 +55,6 @@ const Result = function(props){
                     isLoading: false,
                     error,
                 }));
-        }
-
-        render(){
-            return <Result {...this.state} />;
         }
     }
 
@@ -72,6 +72,10 @@ const Result = function(props){
             };
         }
 
+        render(){
+            return <Result {...this.state} />;
+        }
+
         componentDidMount(){
             this.serverRequest = axios.get('./items.json')
                 .then((response) => this.setState({
@@ -87,10 +91,6 @@ const Result = function(props){
 
         componentWillUnmount(){
             this.serverRequest.abort();
-        }
-
-        render(){
-            return <Result {...this.state} />;
         }
     }
 

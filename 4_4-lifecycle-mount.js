@@ -18,7 +18,7 @@ import { render }from 'react-dom';
         }
 
         componentWillMount(){
-            console.log('2. 组件初始化调用，以后组件更新不会调用，' +
+            console.log('2. 组件初始化调用，' +
                 '可以 setState , 但是会和构造函数初始化的state合并，然后去执行render()' +
                 '只调用一次');
         }
