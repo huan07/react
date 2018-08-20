@@ -28,10 +28,10 @@ import { render }from 'react-dom';
 
         shouldComponentUpdate(nextProps, nextState){
             // 性能优化点
-            // 使用内置的PureComponent  浅比较
-            // 而不是手动编写shouldComponentUpdate
+            // 使用内置的PureComponent 浅比较
+            // 无需编写shouldComponentUpdate
             console.log('state改变 1.2 组件接受到新的props/state时被调用, ' +
-                '浅比较是否相同，' +
+                '比较是否相同，' +
                 'return true才执行更新虚拟DOM, 否则退出');
             return true;
         }
@@ -42,9 +42,11 @@ import { render }from 'react-dom';
 
         render(){
             console.log('3. 创建虚拟DOM');
-            return <h4 onClick={this.click}>
-                this.state.updating => {this.state.updating + ''}
-            </h4>;
+            return (
+                <h4 onClick={this.click}>
+                    this.state.updating => {this.state.updating + ''}
+                </h4>
+            );
         }
 
         componentDidUpdate(prevProps, prevState){

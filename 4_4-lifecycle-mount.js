@@ -49,8 +49,11 @@ import { render }from 'react-dom';
 {
     class Mounting2 extends PureComponent {
         render(){
-            return <h4>this.state.mounting => {this.state
-            + ''}</h4>;
+            return (
+                <h4>
+                    this.state.mounting => {this.state + ''}
+                </h4>
+            );
         }
 
         componentDidMount(){
