@@ -44,6 +44,7 @@ class Toggle extends PureComponent {
 
 
     handleClick2 = () =>{ // 回调函数方法2   被解析到constructor函数内部，作为实例方法
+        // 类属性
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
@@ -54,7 +55,6 @@ class Toggle extends PureComponent {
         // 如果这个回调被作为prop传递给下级组件，这些 下级组件 可能需要额外的重复渲染，导致性能问题
 
         console.log(named);
-        // 在每次组件渲染时创建一个新的函数，可能会影响性能
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));

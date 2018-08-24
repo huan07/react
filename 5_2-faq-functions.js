@@ -16,12 +16,12 @@ const A = 65;
             this.handleClick = ::this.handleClick;
             this.state = {
                 justClicked: null,
-                letters: Array.from({ length: 26 }, (_, i) => String.fromCharCode(A + i))
+                letters: Array.from({ length: 2 }, (_, i) => String.fromCharCode(A + i))
             };
         }
 
         handleClick(justClicked){
-            this.setState({ justClicked, });
+            this.setState({ justClicked });
         }
 
         render(){
@@ -53,13 +53,13 @@ const A = 65;
             this.handleClick = ::this.handleClick;
             this.state = {
                 justClicked: null,
-                letters: Array.from({ length: 26 }, (_, i) => String.fromCharCode(A + i))
+                letters: Array.from({ length: 2 }, (_, i) => String.fromCharCode(A + i))
             };
         }
 
         handleClick(e){
             this.setState({
-                justClicked: e.target.dataset.letter
+                justClicked: e.target.dataset.letter,
             });
         }
 

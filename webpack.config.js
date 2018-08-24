@@ -13,7 +13,7 @@ module.exports = {
 
         //bundle5: './5-HandlingEvents.js',
         //bundle5_2: './5_2-faq-functions.js',
-        //bundle5_3: './5_3-faq-functions.js',
+        bundle5_3: './5_3-faq-functions.js',
 
 
         //bundle6: './6-ConditionalRendering.js',
@@ -22,7 +22,7 @@ module.exports = {
         //bundle8: './8-ControlledComponents.js',
         //bundle8_2: './8_2-UncontrolledComponents.js',
         //bundle8_3: './8_3-RefsAndTheDom.js',
-        bundle8_4: './8_4-ForwardingRefs.js',
+        //bundle8_4: './8_4-ForwardingRefs.js',
 
         //bundle9: './9-LiftingStateUp.js',
         //bundle10: './10-CompositionVsInheritance.js'
