@@ -33,7 +33,7 @@ module.exports = {
         //ErrorBoundaries: './ErrorBoundaries.js',
         //RenderProps:'./RenderProps.js',
         //bundle16: './16-Fragments',
-        //bundle17: './17-HigherOrderComponents',
+        //HigherOrderComponents: './HigherOrderComponents.js',
         //bundle18: './18-Integrating',
         //bundle19: './19-JSXInDepth.js',
         //bundle20: './20-OptimizingPerformance',
