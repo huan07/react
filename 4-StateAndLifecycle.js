@@ -58,21 +58,14 @@ class Clock2 extends PureComponent {
     }
 }
 
-render(
-    (<div>
-        <Clock2 />
-    </div>)
-    ,
-    document.getElementById('app2')
-);
-
+render(<Clock2 />, document.getElementById('app2'));
 
 // b.this.props 和 this.state 可能是异步更新的，
 // b2.你不能依赖他们的值计算下一个state(状态)
 
+
 // b1.为了优化性能，有可能会将多个 setState() 调用合并为一次更新，浅合并！！一次调用render()
 // 参照4_3
-// 参照40-Summary-AsyncStateProps.js
 
 
 // c.数据向下流动，单向数据流

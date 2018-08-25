@@ -6,11 +6,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 {
-    const element = (
-        <h1>
-            Hello, World!
-        </h1>
-    );
+    const element = <h1>Hello, World!</h1>;
 }
 
 {
@@ -60,20 +56,21 @@ import { render } from 'react-dom';
 // 阮老师解释JSX语法：允许 HTML 与 JavaScript 的混写
 // 1.遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；
 // 2.遇到代码块（以 { 开头），就用 JavaScript 规则解析；遇到数组，直接展开数组每一项；
+{
+    const names = ['safari', 'chrome'];
+    const namesDOM = [
+        <h1 key="1">Hello world!</h1>,
+        <h2 key="2">React is awesome</h2>
+    ];
 
-const names = ['safari', 'chrome'];
-const namesDOM = [
-    <h1 key="1">Hello world!</h1>,
-    <h2 key="2">React is awesome</h2>
-];
-
-render(
-    <div>
-        { names }
-        {
-            names.map((item, index) => <h1 key={index}>{ item } engine</h1>)
-        }
-        {namesDOM}
-    </div>,
-    document.getElementById('app3')
-);
+    render(
+        (<div>
+            { names }
+            {
+                names.map((item, index) => <h1 key={index}>{ item } engine</h1>)
+            }
+            {namesDOM}
+        </div>),
+        document.getElementById('app3')
+    );
+}
