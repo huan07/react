@@ -28,15 +28,16 @@ import { render } from 'react-dom';
             );
         }
 
-        incrementNumber(){
+        click(){
             this.setState({
                 number: this.state.number + 1,
             });
-        }
 
-        click(){
-            this.incrementNumber();
-            this.incrementNumber();
+            this.setState({
+                number: this.state.number + 1,
+            });
+
+            // 处于同一次生命周期中两个set的值是相同的，因此执行后只会 + 1
         }
     }
 
@@ -65,19 +66,67 @@ import { render } from 'react-dom';
             );
         }
 
-        incrementNumber(){ // 传递一个更新函数允许你在更新中访问当前的状态值
-            this.setState((prevState) => ({
-                    number: prevState.number + 1,
-                })
-            );
-        }
-
         click(){
-            this.incrementNumber();
-            this.incrementNumber();
+            // 传递一个更新函数允许你在更新中访问当前的状态值
+            this.setState((prevState) => ({
+                number: prevState.number + 1,
+            }));
+
+            this.setState((prevState) => ({
+                number: prevState.number + 1,
+            }));
         }
     }
 
     render(<ButtonClick2 />, document.getElementById('app2'));
+}
+
+{
+    class ButtonClick3 extends PureComponent {
+        constructor(props){
+            super(props);
+            this.click = ::this.click;
+            this.state = {
+                number: 0,
+            };
+        }
+
+        render(){
+            return (
+                <button
+                    type="button"
+                    onClick={this.click}
+                >
+                    clicked: {this.state.number}
+                </button>
+            );
+        }
+
+        click(){
+            this.setState({
+                number: this.state.number + 1,
+            });
+
+            this.setState({
+                number: this.state.number + 1,
+            });
+            console.log(this.state.number);
+
+            setTimeout(() =>{
+                console.log(this.state.number);
+
+                this.setState({
+                    number: this.state.number + 1,
+                });
+
+                this.setState({
+                    number: this.state.number + 1,
+                });
+                console.log(this.state.number);
+            }, 0);
+        }
+    }
+
+    render(<ButtonClick3 />, document.getElementById('app3'));
 }
 
