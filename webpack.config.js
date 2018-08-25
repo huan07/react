@@ -11,13 +11,13 @@ module.exports = {
         //bundle4_5: './4_5-lifecycle-update.js',
 
 
-        bundle5: './5-HandlingEvents.js',
+        //bundle5: './5-HandlingEvents.js',
         //bundle5_2: './5_2-faq-functions.js',
         //bundle5_3: './5_3-faq-functions.js',
 
 
         //bundle6: './6-ConditionalRendering.js',
-        //bundle7: './7-ListsAndKeys.js',
+        bundle7: './7-ListsAndKeys.js',
 
         //bundle8: './8-ControlledComponents.js',
         //bundle8_2: './8_2-UncontrolledComponents.js',
@@ -39,7 +39,7 @@ module.exports = {
         //bundle20: './20-OptimizingPerformance',
 
 
-        //bundle14_: './14_-Reconciliation',
+        //Reconciliation: './Reconciliation.js',
 
 
     },

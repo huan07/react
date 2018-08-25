@@ -98,23 +98,28 @@ function Mailbox(props){
             <h1>hello!</h1>
             {
                 unreadMessages.length > 0 &&
-                (<h2>
-                    you have {unreadMessages.length} unread messages.
-                </h2>)
-            }
-            {
-                unreadMessages.length > 2
-                    ? <h2>
+                (
+                    <h2>
                         you have {unreadMessages.length} unread messages.
                     </h2>
-                    : null
+                )
             }
+
             {
-                unreadMessages.length > 2 ?
-                    (<h2>
-                        you have {unreadMessages.length} unread messages.
-                    </h2>) :
-                    null
+                unreadMessages.length > 2
+                    ? (
+                        <h2>
+                            you have {unreadMessages.length} unread messages.
+                        </h2>
+                    ) : null
+            }
+
+            {
+                unreadMessages.length > 2 ? (
+                        <h2>
+                            you have {unreadMessages.length} unread messages.
+                        </h2>
+                    ) : null
             }
         </div>
     );
