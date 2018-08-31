@@ -3,15 +3,15 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 var config = {
-    mode: "development",
     entry: {
-        JSX: './src/JSX.js',
+        //JSX: './src/JSX.js',
         RenderingElements: './src/RenderingElements',
     },
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
+    mode: "development",
     module: {
         rules: [
             {
