@@ -54,7 +54,7 @@ class Toggle extends PureComponent {
         // 每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。
         // 如果这个回调被作为props传递给下级组件，这些 下级组件 可能需要额外的重复渲染，导致性能问题
 
-        console.log(named);
+        console.log(named, e, e.target);
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));

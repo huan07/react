@@ -1,0 +1,76 @@
+/**
+ * Created by yanghuan on 18/9/1.
+ */
+import React, { PureComponent } from 'react';
+import ReactDOM, { render } from 'react-dom';
+
+{
+    class Demo extends PureComponent {
+        componentDidMount(){
+            const $this = ReactDOM.findDOMNode(this);
+            $this.addEventListener('click', this.onDOMClick, false);
+        }
+
+        onDOMClick = evt =>{
+            evt.stopPropagation();
+            console.log('dom event')
+        };
+
+        onClick = evt =>{
+            console.log('react event')
+        };
+
+        render(){
+            return (
+                <div onClick={this.onClick}>Demo 冒泡到documnet</div>
+            );
+        }
+    }
+
+    render(<Demo />, document.getElementById('app'));
+}
+
+
+{
+    class Demo2 extends PureComponent {
+        componentDidMount(){
+            const $parent = ReactDOM.findDOMNode(this);
+            const $child = $parent.querySelector('.child');
+
+            $parent.addEventListener('click', this.onParentDOMClick, false);
+            $child.addEventListener('click', this.onChildDOMClick, false);
+        }
+
+        onChildDOMClick = evt =>{
+
+            console.log('child dom event')
+        };
+
+        onParentDOMClick = evt =>{
+
+            console.log('parent dom event')
+        };
+
+        onChildClick = evt =>{
+            evt.stopPropagation();
+            console.log('child react event')
+        };
+
+        onParentClick = evt =>{
+            console.log('parent react event')
+        };
+
+        render(){
+            return (
+                <div onClick={this.onParentClick}>
+                    <div className="child" onClick={this.onChildClick}>
+                        Demo 冒泡到parent, document
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    render(<Demo2 />, document.getElementById('app2'));
+}
+
