@@ -17,7 +17,8 @@ import PropTypes from 'prop-types';
 // 函数式组件
 // 类组件(具备一些额外的特性 => 局部状态和生命周期钩子)
 
-const Greeting = ({ name, age }) =>{
+const Greeting = (props) =>{
+    const { name, age } = props;
     return (
         <div>
             <h2>{`name is ${name}`}</h2>

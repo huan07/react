@@ -11,76 +11,60 @@ import { render } from 'react-dom';
     class ButtonClick extends PureComponent {
         constructor(props){
             super(props);
+
+            this.clickX = ::this.clickX;
             this.click = ::this.click;
+
             this.state = {
+                numberX: 0,
                 number: 0,
             };
         }
 
         render(){
             return (
-                <button
-                    type="button"
-                    onClick={this.click}
-                >
-                    clicked: {this.state.number}
-                </button>
+                <div>
+                    <button
+                        type="button"
+                        onClick={this.clickX}
+                    >
+                        clicked: {this.state.numberX}
+                    </button>
+
+                    <button
+                        type="button"
+                        onClick={this.click}
+                    >
+                        clicked: {this.state.number}
+                    </button>
+                </div>
             );
         }
 
-        click(){
-            this.setState({
-                number: this.state.number + 1,
-            });
+        clickX(){
 
-            this.setState({
-                number: this.state.number + 1,
-            });
+            this.setState({ numberX: this.state.numberX + 1, });
+
+            this.setState({ numberX: this.state.numberX + 1, });
 
             // 处于同一次生命周期中两个set的值是相同的，因此执行后只会 + 1
+        }
+
+
+        click(){
+
+            this.setState((prevState) => ({ number: prevState.number + 1, }));
+
+            this.setState((prevState) => ({ number: prevState.number + 1, }));
+
+            // 传递一个更新函数允许你在更新中访问当前的状态值
         }
     }
 
     render(<ButtonClick />, document.getElementById('app'));
 }
 
-// 传递更新函数解决而不是传递对象
-{
-    class ButtonClick2 extends PureComponent {
-        constructor(props){
-            super(props);
-            this.click = ::this.click;
-            this.state = {
-                number: 0,
-            };
-        }
-
-        render(){
-            return (
-                <button
-                    type="button"
-                    onClick={this.click}
-                >
-                    修正后 clicked: {this.state.number}
-                </button>
-            );
-        }
-
-        click(){
-            // 传递一个更新函数允许你在更新中访问当前的状态值
-            this.setState((prevState) => ({
-                number: prevState.number + 1,
-            }));
-
-            this.setState((prevState) => ({
-                number: prevState.number + 1,
-            }));
-        }
-    }
-
-    render(<ButtonClick2 />, document.getElementById('app2'));
-}
-
+// ? ?
 {
     class ButtonClick3 extends PureComponent {
         constructor(props){
@@ -110,10 +94,10 @@ import { render } from 'react-dom';
             this.setState({
                 number: this.state.number + 1,
             });
-            console.log(this.state.number);
+            console.log(this.state.number); // 0
 
             setTimeout(() =>{
-                console.log(this.state.number);
+                console.log(this.state.number); // 1
 
                 this.setState({
                     number: this.state.number + 1,
@@ -122,7 +106,7 @@ import { render } from 'react-dom';
                 this.setState({
                     number: this.state.number + 1,
                 });
-                console.log(this.state.number);
+                console.log(this.state.number); // 3
             }, 0);
         }
     }

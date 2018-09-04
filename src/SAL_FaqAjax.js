@@ -77,18 +77,17 @@ const Result = function(props){
         componentDidMount(){
             this.serverRequest = axios.get('./items.json')
                 .then((response) => this.setState({
-                        isLoading: false,
-                        items: response.data.items || [],
-                    })
-                ).catch((error) => this.setState({
-                        isLoading: false,
-                        error,
-                    })
-                );
+                    isLoading: false,
+                    items: response.data.items || [],
+                }))
+                .catch((error) => this.setState({
+                    isLoading: false,
+                    error,
+                }));
         }
 
         componentWillUnmount(){
-            this.serverRequest.abort();
+            this.serverRequest && this.serverRequest.abort();
         }
     }
 

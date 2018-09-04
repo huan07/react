@@ -29,14 +29,14 @@ class OptimisePerformance1 extends Component {
             <button
                 onClick={() => this.setState(state => ({ count: state.count + 1 }))}
             >
-                count: {`${ this.state.count} color: ${this.props.color}`}
+                count: {`${ this.state.count} color: ${this.props.color}`} _x
             </button>
         );
     }
 }
 
 class OptimisePerformance2 extends PureComponent {
-    // 不需要自己写shouldComponentUpdate继承了PureComponent的方法
+    // React.PureComponent 仅会进项浅比较，此时不需要自己写shouldComponentUpdate
     // PureComponent 不能和 shouldComponentUpdate 一起使用，否则会warning
     state = { count: 1 };
 
@@ -78,7 +78,7 @@ class WordAdder extends PureComponent {
     render(){
         return (
             <div style={{ marginTop: '40px' }}>
-                <button onClick={this.handleClick}>button</button>
+                <button onClick={this.handleClick}>button _x</button>
                 <ListOfWords words={this.state.words} />
             </div>
         );
