@@ -5,7 +5,6 @@
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 
-
 // state 和 props 类似，但是它是私有的，并且由组件本身完全控制
 // 1.
 function Clock(props){
@@ -34,6 +33,15 @@ class Clock2 extends PureComponent {
         // 其它地方需要this.setState({})
     }
 
+    render(){
+        return (
+            <div>
+                <h1>Hello,world1</h1>
+                <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+            </div>
+        );
+    }
+
     componentDidMount(){
         this.timerID = setInterval(() => this.tick(), 1000);
     }
@@ -46,15 +54,6 @@ class Clock2 extends PureComponent {
         this.setState({
             date: new Date(),
         });
-    }
-
-    render(){
-        return (
-            <div>
-                <h1>Hello,world1</h1>
-                <h2>It is {this.state.date.toLocaleTimeString()}</h2>
-            </div>
-        );
     }
 }
 

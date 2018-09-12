@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 // 用户自定义的组件（组件名总是以大写字母开头的，必须返回  一个单独的根元素）；
 
 // 函数式组件
-// 类组件(具备一些额外的特性 => 局部状态和生命周期钩子)
+// 类组件(具备一些额外的特性 => 局部状态state和生命周期钩子)
 
 const Greeting = (props) =>{
     const { name, age } = props;

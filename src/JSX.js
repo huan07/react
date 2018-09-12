@@ -63,14 +63,15 @@ import { render } from 'react-dom';
         <h2 key="2">React is awesome</h2>
     ];
 
-    render(
-        (<div>
+    const element = (
+        <div>
             { names }
             {
                 names.map((item, index) => <h1 key={index}>{ item } engine</h1>)
             }
             {namesDOM}
-        </div>),
-        document.getElementById('app3')
+        </div>
     );
+
+    render(element, document.getElementById('app'));
 }

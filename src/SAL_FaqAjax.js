@@ -5,6 +5,7 @@
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 import axios from 'axios';
+import itemsJson from '../mock-server/items.json';
 
 const List = (props) =>
     <ul>
@@ -44,7 +45,7 @@ const Result = function(props){
         }
 
         componentDidMount(){
-            fetch('./items.json')
+            fetch(itemsJson)
                 .then(response => response.json())
                 .then((json) => this.setState({
                     isLoading: false,
@@ -75,7 +76,7 @@ const Result = function(props){
         }
 
         componentDidMount(){
-            this.serverRequest = axios.get('./items.json')
+            this.serverRequest = axios.get(itemsJson)
                 .then((response) => this.setState({
                     isLoading: false,
                     items: response.data.items || [],

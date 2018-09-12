@@ -50,7 +50,7 @@ class Toggle extends PureComponent {
         }));
     };
 
-    handleClick3(named, e){ // 回调函数方法3
+    handleClick3(named, e){ // 回调函数方法3，通过 bind 的方式，事件对象以及更多的参数将会被隐式的进行传递。
         // 每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。
         // 如果这个回调被作为props传递给下级组件，这些 下级组件 可能需要额外的重复渲染，导致性能问题
 

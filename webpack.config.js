@@ -1,26 +1,24 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 var config = {
     entry: {
         //JSX: './src/JSX.js',
-
-
         //RenderingElements: './src/RenderingElements.js',
-
-
         //ComponentsAndProps:'./src/ComponentsAndProps.js',
-
-
         //StateAndLifecycle:'./src/StateAndLifecycle.js',
+        //HandlingEvents: './src/HandlingEvents.js',
+        ConditionalRendering: './src/ConditionalRendering.js',
+
+
         //FaqState:'./src/SAL_FaqState.js',
-        FaqAjax: './src/SAL_FaqAjax.js',
+        //FaqAjax: './src/SAL_FaqAjax.js',
         //LifecycleMount:'./src/SAL_LifecycleMount.js',
         //LifecycleUpdate:'./src/SAL_LifecycleUpdate.js',
 
 
-        //HandlingEvents: './src/HandlingEvents.js',
         //ForwardingRefs: './src/ForwardingRefs.js', // ?
         //Reconciliation: './src/Reconciliation.js',
         //RefsAndTheDom: './src/RefsAndTheDom.js',
@@ -34,31 +32,53 @@ var config = {
         //SyntheticEvent:'./src/SyntheticEvent.js',
         //SyntheticEvent2: './src/SyntheticEvent2.js',
     },
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
-    },
-    mode: "development",
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: 'babel-loader'
-            }
-        ]
-    },
+    mode: 'development',
     devtool: 'eval',
     devServer: {
-        contentBase: './dist'
+        contentBase: './dist',
+        hot: true
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Development',
-            template: __dirname + "/index.html"
-        })
-    ]
+            title: 'output management',
+            template: 'index.html',
+            //filename: `html/index.html`,
+            hash: true,
+            inject: 'body',
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].bundle.js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: 'babel-loader',
+                exclude: /node_modules/
+            },
+            {
+                test: /\.json$/,
+                use: 'json-loader'
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    }
+                ]
+            }
+        ]
+    }
 };
 
 module.exports = config;
