@@ -1,15 +1,12 @@
 /**
  * Created by yanghuan on 18/8/18.
  */
+
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
-
 import throttle from 'lodash.throttle';
-
 import debounce from 'lodash.debounce';
-
 import rafSchedule from 'raf-schd';
-
 
 // 怎样避免函数被调用太快或者太多次
 

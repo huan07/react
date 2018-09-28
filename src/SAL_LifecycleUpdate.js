@@ -23,6 +23,9 @@ import { render }from 'react-dom';
         }
 
         componentWillReceiveProps(nextProps){
+            if (this.props.xx !== nextProps.xx) {
+                //;
+            }
             console.log('组件内属性props不可以更改，只能通过父组件传递，props改变 ' +
                 '1.1 组件接受到新的props时被调用，可以 setState');
         }
@@ -54,7 +57,7 @@ import { render }from 'react-dom';
         componentDidUpdate(prevProps, prevState){
             console.log('4. componentDidUpdate, 可以获取DOM节点' +
                 '必须包含在条件语句中调用 setState ,否则会导致无限循环');
-            if (this.props.xx !== prevProps.xx) {
+            if (prevProps.xx !== this.props.xx) {
                 //;
             }
         }

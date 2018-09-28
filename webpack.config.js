@@ -5,16 +5,14 @@ const webpack = require('webpack');
 
 var config = {
     entry: {
-        //JSX: './src/JSX.js',
-        //RenderingElements: './src/RenderingElements.js',
-        //ComponentsAndProps:'./src/ComponentsAndProps.js',
-        //StateAndLifecycle:'./src/StateAndLifecycle.js',
-        //HandlingEvents: './src/HandlingEvents.js',
-        ConditionalRendering: './src/ConditionalRendering.js',
+        //JSX: './src/JSX.js', x
+        //RenderingElements: './src/RenderingElements.js', x
+        //ComponentsAndProps:'./src/ComponentsAndProps.js', x
+        //StateAndLifecycle:'./src/StateAndLifecycle.js', x
+        //HandlingEvents: './src/HandlingEvents.js', x
+        //ConditionalRendering: './src/ConditionalRendering.js', x
 
 
-        //FaqState:'./src/SAL_FaqState.js',
-        //FaqAjax: './src/SAL_FaqAjax.js',
         //LifecycleMount:'./src/SAL_LifecycleMount.js',
         //LifecycleUpdate:'./src/SAL_LifecycleUpdate.js',
 
@@ -26,34 +24,21 @@ var config = {
         //OP_Immutable:'./src/OP_Immutable.js',
 
 
-        //FaqFunctions:'./src/FaqFunctions.js',
-        //FaqFunctions2:'./src/FaqFunctions2.js',
-
         //SyntheticEvent:'./src/SyntheticEvent.js',
         //SyntheticEvent2: './src/SyntheticEvent2.js',
+
+
+        //
+        //x FaqAjax: './src/SAL_FaqAjax.js',
+        //x FaqFunctions:'./src/FaqFunctions.js',
+        //x FaqFunctions2:'./src/FaqFunctions2.js',
+        FaqState: './src/SAL_FaqState.js',
     },
-    mode: 'development',
-    devtool: 'eval',
-    devServer: {
-        contentBase: './dist',
-        hot: true
-    },
-    plugins: [
-        new CleanWebpackPlugin(['dist']),
-        new HtmlWebpackPlugin({
-            title: 'output management',
-            template: 'index.html',
-            //filename: `html/index.html`,
-            hash: true,
-            inject: 'body',
-        }),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin()
-    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js'
     },
+
     module: {
         rules: [
             {
@@ -78,6 +63,27 @@ var config = {
                 ]
             }
         ]
+    },
+
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title: 'output management',
+            template: 'index.html',
+            //filename: `html/index.html`,
+            hash: true,
+            inject: 'body',
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin()
+    ],
+
+    mode: 'development',
+    devtool: 'eval-source-map',
+
+    devServer: {
+        contentBase: './dist',
+        hot: true
     }
 };
 

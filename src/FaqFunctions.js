@@ -5,7 +5,6 @@
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 
-
 const A = 65;
 
 // 通过箭头函数传递参数

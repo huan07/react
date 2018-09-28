@@ -2,24 +2,17 @@
  * Created by yanghuan on 18/8/18.
  */
 
-import React, { PureComponent } from 'react';
-import { render } from 'react-dom';
+import React, { PureComponent } from '../react.js';
+import { render } from '../react-dom.js';
 
-// setState 的调用是异步的 - 在调用 setState 之后，不要依赖 this.state 来立即反映新值。
-// 同一个函数内多次setState合并一次去render，提高性能
+// setState 的调用是异步的 - 在调用 setState 之后，不要依赖 this.state 来立即反映新值
+// setState() 并不总是立即更新组件。它可能会 批量 或 延迟到后面更新
 {
     class ButtonClick extends PureComponent {
-        constructor(props){
-            super(props);
-
-            this.clickX = ::this.clickX;
-            this.click = ::this.click;
-
-            this.state = {
-                numberX: 0,
-                number: 0,
-            };
-        }
+        state = {
+            numberX: 0,
+            number: 0,
+        };
 
         render(){
             return (
@@ -41,17 +34,17 @@ import { render } from 'react-dom';
             );
         }
 
-        clickX(){
+        clickX = () =>{
 
             this.setState({ numberX: this.state.numberX + 1, });
 
             this.setState({ numberX: this.state.numberX + 1, });
 
             // 处于同一次生命周期中两个set的值是相同的，因此执行后只会 + 1
-        }
+        };
 
 
-        click(){
+        click = () =>{
 
             this.setState((prevState) => ({ number: prevState.number + 1, }));
 
@@ -90,7 +83,6 @@ import { render } from 'react-dom';
             this.setState({
                 number: this.state.number + 1,
             });
-
             this.setState({
                 number: this.state.number + 1,
             });
@@ -99,10 +91,10 @@ import { render } from 'react-dom';
             setTimeout(() =>{
                 console.log(this.state.number); // 1
 
+
                 this.setState({
                     number: this.state.number + 1,
                 });
-
                 this.setState({
                     number: this.state.number + 1,
                 });

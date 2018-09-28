@@ -5,7 +5,7 @@
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 import axios from 'axios';
-import itemsJson from '../mock-server/items.json';
+import itemsJson from './items.json';
 
 const List = (props) =>
     <ul>
@@ -31,14 +31,11 @@ const Result = function(props){
 
 {
     class MyComponent extends PureComponent {
-        constructor(props){
-            super(props);
-            this.state = {
-                isLoading: true,
-                items: [],
-                error: null,
-            };
-        }
+        state = {
+            isLoading: true,
+            items: [],
+            error: null,
+        };
 
         render(){
             return <Result {...this.state} />;
