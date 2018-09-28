@@ -1,8 +1,9 @@
 /**
  * Created by yanghuan on 18/8/18.
  */
-import React, { PureComponent } from 'react';
-import { render }from 'react-dom';
+import React, { PureComponent } from '../react.js';
+import { render } from '../react-dom.js';
+
 
 // Mounting(装载)
 {
@@ -13,14 +14,13 @@ import { render }from 'react-dom';
                 mounting: true,
             };
 
-            console.log('1. 组件初始化state, ' +
-                '事件绑定');
+            console.log('1. 组件初始化state, 回调函数绑定this');
         }
 
-        componentWillMount(){
+        componentWillMount(){ // 生命周期内只调用一次
             console.log('2. 组件初始化调用，' +
-                '可以 setState , 但是会和构造函数初始化的state合并，然后去执行render()' +
-                '只调用一次');
+                '可以 setState , 但是会和构造函数初始化的state合并，然后去执行 render() '
+            );
         }
 
         render(){
@@ -28,10 +28,10 @@ import { render }from 'react-dom';
             return <h4>this.state.mounting => {this.state.mounting + ''}</h4>;
         }
 
-        componentDidMount(){
+        componentDidMount(){ // 生命周期内只调用一次
             console.log('4. render之后调用，此时DOM已经被渲染，可以通过this.getDOMNode()获取和操作DOM节点' +
-                '可以 setState , 然后去执行render()' +
-                '只调用一次');
+                '可以 setState , 然后去执行 render() '
+            );
             this.setState({
                 mounting: false,
             });
@@ -43,23 +43,4 @@ import { render }from 'react-dom';
     }
 
     render(<Mounting />, document.getElementById('app'));
-}
-
-// Mounting(装载): 没有constructor
-{
-    class Mounting2 extends PureComponent {
-        render(){
-            return (
-                <h4>
-                    this.state.mounting => {this.state + ''}
-                </h4>
-            );
-        }
-
-        componentDidMount(){
-            console.log('Mounting(装载): 没有constructor, ');
-        }
-    }
-
-    render(<Mounting2 />, document.getElementById('app2'));
 }

@@ -2,8 +2,11 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React from 'react';
-import { render } from 'react-dom';
+/*import React from 'react';
+ import { render } from 'react-dom';*/
+
+import React from '../react.js';
+import { render } from '../react-dom.js';
 
 {
     const element = <h1>Hello, World!</h1>;

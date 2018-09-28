@@ -12,9 +12,8 @@ var config = {
         //HandlingEvents: './src/HandlingEvents.js', x
         //ConditionalRendering: './src/ConditionalRendering.js', x
 
-
-        //LifecycleMount:'./src/SAL_LifecycleMount.js',
-        //LifecycleUpdate:'./src/SAL_LifecycleUpdate.js',
+        //Context:'./src/Context',
+        //Context2:'./src/Context2',
 
 
         //ForwardingRefs: './src/ForwardingRefs.js', // ?
@@ -32,7 +31,10 @@ var config = {
         //x FaqAjax: './src/SAL_FaqAjax.js',
         //x FaqFunctions:'./src/FaqFunctions.js',
         //x FaqFunctions2:'./src/FaqFunctions2.js',
-        FaqState: './src/SAL_FaqState.js',
+        //FaqState: './src/SAL_FaqState.js',
+
+        //LifecycleMount:'./src/SAL_LifecycleMount.js',
+        LifecycleUpdate: './src/SAL_LifecycleUpdate.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

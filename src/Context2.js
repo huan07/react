@@ -2,8 +2,8 @@
  * Created by yanghuan on 18/8/19.
  */
 
-import React from 'react';
-import { render } from 'react-dom';
+import React, { Component, createContext } from '../react.js';
+import { render } from '../react-dom.js';
 
 // 动态 Context
 {
@@ -19,7 +19,7 @@ import { render } from 'react-dom';
         },
     };
 
-    const ThemeContext = React.createContext(
+    const ThemeContext = createContext(
         themes.dark
     );
 
@@ -50,7 +50,7 @@ import { render } from 'react-dom';
         );
     }
 
-    class App extends React.Component {
+    class App extends Component {
         constructor(props){
             super(props);
             this.state = {
