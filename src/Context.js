@@ -36,10 +36,11 @@ import { render } from '../react-dom.js';
 // 使用 context, 我们可以避免通过中间组件传递 props
 {
     const ThemeContext = createContext('light');
+    const { Provider, Consumer } = ThemeContext;
 
     function ThemedButton(props){
         return (
-            <ThemeContext.Consumer>
+            <Consumer>
                 {
                     value => (
                         <button
@@ -52,7 +53,7 @@ import { render } from '../react-dom.js';
                         </button>
                     )
                 }
-            </ThemeContext.Consumer>
+            </Consumer>
         );
     }
 
@@ -63,9 +64,9 @@ import { render } from '../react-dom.js';
     class App2 extends Component {
         render(){
             return (
-                <ThemeContext.Provider value="red">
+                <Provider value="red">
                     <Toolbar />
-                </ThemeContext.Provider>
+                </Provider>
             );
         }
     }

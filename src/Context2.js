@@ -7,38 +7,34 @@ import { render } from '../react-dom.js';
 
 // 动态 Context
 {
-
     const themes = {
         light: {
-            foreground: '#000000',
-            background: '#eeeeee',
+            background: 'pink',
         },
         dark: {
-            foreground: '#ffffff',
-            background: '#222222',
+            background: 'black',
         },
     };
 
-    const ThemeContext = createContext(
-        themes.dark
-    );
+    const ThemeContext = createContext(themes.dark);
+    const { Provider, Consumer } = ThemeContext;
 
     function ThemedButton(props){
         return (
-            <ThemeContext.Consumer>
+            <Consumer>
                 {
                     value => (
                         <button
                             {...props}
-                            theme={value}
                             type="button"
                             style={{ background: value.background }}
+                            theme={value}
                         >
                             按钮
                         </button>
                     )
                 }
-            </ThemeContext.Consumer>
+            </Consumer>
         );
     }
 
@@ -59,8 +55,8 @@ import { render } from '../react-dom.js';
         }
 
         toggleTheme = () =>{
-            this.setState(state => ({
-                    theme: state.theme === themes.dark
+            this.setState(prevState => ({
+                    theme: prevState.theme === themes.dark
                         ? themes.light
                         : themes.dark,
                 })
@@ -70,9 +66,9 @@ import { render } from '../react-dom.js';
         render(){
             return (
                 <div>
-                    <ThemeContext.Provider value={this.state.theme}>
+                    <Provider value={this.state.theme}>
                         <Toolbar changeTheme={this.toggleTheme} />
-                    </ThemeContext.Provider>
+                    </Provider>
                     <ThemedButton />
                 </div>
             );

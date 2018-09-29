@@ -13,7 +13,7 @@ var config = {
         //ConditionalRendering: './src/ConditionalRendering.js', x
 
         //Context:'./src/Context',
-        //Context2:'./src/Context2',
+        Context2: './src/Context2',
 
 
         //ForwardingRefs: './src/ForwardingRefs.js', // ?
@@ -34,7 +34,7 @@ var config = {
         //FaqState: './src/SAL_FaqState.js',
 
         //LifecycleMount:'./src/SAL_LifecycleMount.js',
-        LifecycleUpdate: './src/SAL_LifecycleUpdate.js',
+        //LifecycleUpdate: './src/SAL_LifecycleUpdate.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
