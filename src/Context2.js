@@ -77,3 +77,5 @@ import { render } from '../react-dom.js';
 
     render(<App />, document.getElementById('app'));
 }
+
+// to add others
