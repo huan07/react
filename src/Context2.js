@@ -30,7 +30,7 @@ import { render } from '../react-dom.js';
                             style={{ background: value.background }}
                             theme={value}
                         >
-                            按钮
+                            {props.children || '按钮'}
                         </button>
                     )
                 }
