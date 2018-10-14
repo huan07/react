@@ -19,8 +19,12 @@ import { render } from 'react-dom';
 
         componentWillMount(){ // 生命周期内只调用一次
             console.log('2. 组件初始化调用，' +
-                '可以 setState , 但是会和构造函数初始化的state合并，然后去执行 render() '
+                '可以 setState , ' +
+                '但是会和构造函数初始化的state合并，合并后的数据去 render() '
             );
+            this.setState({
+                mounting: false,
+            });
         }
 
         render(){
@@ -29,10 +33,11 @@ import { render } from 'react-dom';
         }
 
         componentDidMount(){ // 生命周期内只调用一次
-            console.log('4. render之后调用，此时DOM已经被渲染，可以通过this.getDOMNode()获取和操作DOM节点' +
+            console.log('4. render之后调用，' +
+                '此时DOM已经被渲染，可以通过this.getDOMNode()获取和操作DOM节点' +
                 '可以 setState '
             );
-            this.setState({
+            this.setState({ // nextState.mounting === this.state.mounting 都是false, 没有差异，不会去render()
                 mounting: false,
             });
         }
