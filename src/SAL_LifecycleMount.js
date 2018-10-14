@@ -39,7 +39,7 @@ import { render } from 'react-dom';
 
         componentWillUnmount(){
             console.log('事件监听，定时器清除' +
-                '因为页面卸载时，ajax请求的结果未返回，' +
+                '因为页面卸载时，ajax请求的结果未返回，to do ' +
                 '组件离开页面会报错');
         }
     }
