@@ -21,14 +21,14 @@ import { render } from '../react-dom.js';
                         type="button"
                         onClick={this.clickX}
                     >
-                        clicked: {this.state.numberX}
+                        clickX: {this.state.numberX}
                     </button>
 
                     <button
                         type="button"
                         onClick={this.click}
                     >
-                        clicked: {this.state.number}
+                        click: {this.state.number}
                     </button>
                 </div>
             );
@@ -36,9 +36,9 @@ import { render } from '../react-dom.js';
 
         clickX = () =>{
 
-            this.setState({ numberX: this.state.numberX + 1, });
+            this.setState({ numberX: this.state.numberX + 1 });
 
-            this.setState({ numberX: this.state.numberX + 1, });
+            this.setState({ numberX: this.state.numberX + 1 });
 
             // 处于同一次生命周期中两个set的值是相同的，因此执行后只会 + 1
         };
@@ -46,20 +46,20 @@ import { render } from '../react-dom.js';
 
         click = () =>{
 
-            this.setState((prevState) => ({ number: prevState.number + 1, }));
+            this.setState((prevState) => ({ number: prevState.number + 1 }));
 
-            this.setState((prevState) => ({ number: prevState.number + 1, }));
+            this.setState((prevState) => ({ number: prevState.number + 1 }));
 
-            // 传递一个更新函数允许你在更新中访问当前的状态值
+            // 依赖于当前状态的值更新状态，传递回调函数
         }
     }
 
     render(<ButtonClick />, document.getElementById('app'));
 }
 
-// ? ?
+//  任务队列的代码进入主线程执行 ! ! !
 {
-    class ButtonClick3 extends PureComponent {
+    class ButtonClick2 extends PureComponent {
         constructor(props){
             super(props);
             this.click = ::this.click;
@@ -103,6 +103,6 @@ import { render } from '../react-dom.js';
         }
     }
 
-    render(<ButtonClick3 />, document.getElementById('app3'));
+    render(<ButtonClick2 />, document.getElementById('app2'));
 }
 

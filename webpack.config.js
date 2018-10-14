@@ -7,8 +7,6 @@ var config = {
     entry: {
         //JSX: './src/JSX.js', // x
         //RenderingElements: './src/RenderingElements.js', // x
-        //ComponentsAndProps:'./src/ComponentsAndProps.js', // x
-        StateAndLifecycle: './src/StateAndLifecycle.js', // x
 
         //ConditionalRendering: './src/ConditionalRendering.js',
 
@@ -18,22 +16,21 @@ var config = {
         //OptimizingPerformance:'./src/OptimizingPerformance.js',
         //OP_Immutable:'./src/OP_Immutable.js',
 
-        //x FaqAjax: './src/SAL_FaqAjax.js',
-
-        //FaqState: './src/SAL_FaqState.js',
 
         // // //
 
 
-        //LifecycleMount:'./src/SAL_LifecycleMount.js',
-        //LifecycleUpdate: './src/SAL_LifecycleUpdate.js',
+        //ComponentsAndProps:'./src/ComponentsAndProps.js', // x
+        //StateAndLifecycle: './src/StateAndLifecycle.js', // x
+        //FaqState: './src/SAL_FaqState.js', // x
+        FaqAjax: './src/SAL_FaqAjax.js', // x to do json error
+        //LifecycleMount:'./src/SAL_LifecycleMount.js', // x
+        //LifecycleUpdate: './src/SAL_LifecycleUpdate.js', // x
 
 
         //HandlingEvents: './src/HandlingEvents.js',
-
         //SyntheticEvent:'./src/SyntheticEvent.js',
         //SyntheticEvent2: './src/SyntheticEvent2.js',
-
         //FaqFunctions:'./src/FaqFunctions.js',
         //FaqFunctions2:'./src/FaqFunctions2.js',
 

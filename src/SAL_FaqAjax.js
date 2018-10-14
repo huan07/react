@@ -1,10 +1,11 @@
 /**
  * Created by yanghuan on 18/8/17.
  */
-
+require("babel-polyfill");
 import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 import axios from 'axios';
+
 import itemsJson from './items.json';
 
 const List = (props) =>
