@@ -2,8 +2,8 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React, { PureComponent } from '../react.js';
-import { render } from '../react-dom.js';
+import React, { PureComponent } from 'react';
+import { render } from 'react-dom';
 
 // state 和 props 类似，但是它是私有的，并且由组件本身完全控制
 // 1.

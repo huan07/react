@@ -1,8 +1,8 @@
 /**
  * Created by yanghuan on 18/9/1.
  */
-import React, { PureComponent } from '../react.js';
-import ReactDOM, { render, findDOMNode } from '../react-dom.js';
+import React, { PureComponent } from 'react';
+import ReactDOM, { render, findDOMNode } from 'react-dom';
 
 {
     class Demo extends PureComponent {

@@ -1,8 +1,8 @@
 /**
  * Created by yanghuan on 18/8/18.
  */
-import React, { PureComponent } from '../react.js';
-import { render } from '../react-dom.js';
+import React, { PureComponent } from 'react';
+import { render } from 'react-dom';
 
 
 // Mounting(装载)
@@ -38,7 +38,9 @@ import { render } from '../react-dom.js';
         }
 
         componentWillUnmount(){
-            console.log('事件监听，定时器清除');
+            console.log('事件监听，定时器清除' +
+                '因为页面卸载时，ajax请求的结果未返回，' +
+                '组件离开页面会报错');
         }
     }
 

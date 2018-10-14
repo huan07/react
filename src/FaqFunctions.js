@@ -2,8 +2,8 @@
  * Created by yanghuan on 18/8/18.
  */
 
-import React, { PureComponent } from '../react.js';
-import { render } from '../react-dom.js';
+import React, { PureComponent } from 'react';
+import { render } from 'react-dom';
 
 const A = 65;
 

@@ -2,8 +2,8 @@
  * Created by yanghuan on 18/8/6.
  */
 
-import React, { Component, createContext } from '../react.js';
-import { render } from '../react-dom.js';
+import React, { Component, createContext } from 'react';
+import { render } from 'react-dom';
 
 // Context 旨在共享一个组件树内可被视为 “全局” 的数据
 {

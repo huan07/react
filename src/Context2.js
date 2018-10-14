@@ -2,8 +2,8 @@
  * Created by yanghuan on 18/8/19.
  */
 
-import React, { Component, createContext } from '../react.js';
-import { render } from '../react-dom.js';
+import React, { Component, createContext } from 'react';
+import { render } from 'react-dom';
 
 // 动态 Context
 {

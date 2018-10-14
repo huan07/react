@@ -2,8 +2,8 @@
  * Created by yanghuan on 18/8/18.
  */
 
-import React, { PureComponent } from '../react.js';
-import { render } from '../react-dom.js';
+import React, { PureComponent } from 'react';
+import { render } from 'react-dom';
 
 // setState 的调用是异步的 - 在调用 setState 之后，不要依赖 this.state 来立即反映新值
 // setState() 并不总是立即更新组件。它可能会 批量 或 延迟到后面更新

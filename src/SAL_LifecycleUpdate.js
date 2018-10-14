@@ -1,8 +1,8 @@
 /**
  * Created by yanghuan on 18/8/18.
  */
-import React, { Component, PureComponent } from '../react.js';
-import { render } from '../react-dom.js';
+import React, { Component, PureComponent } from 'react';
+import { render } from 'react-dom';
 
 // Updating(更新)
 // New props,  setState(),  forceUpdate()行为导致
