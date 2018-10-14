@@ -2,8 +2,8 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React, { PureComponent } from 'react';
-import { render } from 'react-dom';
+import React, { PureComponent } from '../react.js';
+import { render } from '../react-dom.js';
 
 // state 和 props 类似，但是它是私有的，并且由组件本身完全控制
 // 1.
@@ -47,7 +47,7 @@ class Clock2 extends PureComponent {
     }
 
     componentWillUnmount(){ // 在组件被销毁时释放所占用的资源
-        clearInterval(this.timerID);
+        this.timerID && clearInterval(this.timerID);
     }
 
     tick(){

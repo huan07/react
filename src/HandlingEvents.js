@@ -2,8 +2,8 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React, { PureComponent } from 'react';
-import { render } from 'react-dom';
+import React, { PureComponent } from '../react.js';
+import { render } from '../react-dom.js';
 
 // 1.使用驼峰命名，而不是全部小写
 // 2.通过JSX，传递一个函数作为事件处理程序，而不是一个字符串
@@ -26,6 +26,7 @@ function ActionLink(){
 
 render(<ActionLink />, document.getElementById('app'));
 
+//
 class Toggle extends PureComponent {
     constructor(props, context){
         super(props, context);
@@ -36,51 +37,54 @@ class Toggle extends PureComponent {
         //this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(){ // 回调函数方法1 better code
+    changed(){
         this.setState(prevState => ({
             isToggleOn: !prevState.isToggleOn,
         }));
+    }
+
+    handleClick(){ // 回调函数方法1 better code
+        this.changed();
     }
 
 
     handleClick2 = () =>{ // 回调函数方法2   被解析到constructor函数内部，作为实例方法
         // 类属性
-        this.setState(prevState => ({
-            isToggleOn: !prevState.isToggleOn,
-        }));
+        this.changed();
     };
 
-    handleClick3(named, e){ // 回调函数方法3，通过 bind 的方式，事件对象以及更多的参数将会被隐式的进行传递。
-        // 每次渲染时都创建一个不同的回调，在多数情况下，没什么问题。
-        // 如果这个回调被作为props传递给下级组件，这些 下级组件 可能需要额外的重复渲染，导致性能问题
+    handleClick3(named, e){ // 回调函数方法3，
+        // bind方式，e 作为最后一个参数默认被传递
+
+        // 触发render，创建一个不同的回调函数，传递给子组件，
+        // 子组件componentWillReceiveProps, 触发子组件render, 导致性能问题
 
         console.log(named, e, e.target);
-        this.setState(prevState => ({
-            isToggleOn: !prevState.isToggleOn,
-        }));
+        this.changed();
     }
 
     render(){
+        const { isToggleOn } = this.state;
         return (
             <div>
                 <button key="1" onClick={this.handleClick}>
-                    {this.state.isToggleOn ? 'ON' : 'OFF'}
+                    {isToggleOn ? 'ON' : 'OFF'}
                 </button>
                 <br /><br />
 
                 <button key="2" onClick={this.handleClick2}>
-                    {this.state.isToggleOn ? 'ON' : 'OFF '} {'handleClick2'}
+                    {isToggleOn ? 'ON' : 'OFF '} {'handleClick2'}
                 </button>
                 <br /><br />
 
 
                 <button key="3" onClick={(e) => this.handleClick3('传参数', e)}>
-                    {this.state.isToggleOn ? 'ON' : 'OFF'} {'handleClick3 x'}
+                    {isToggleOn ? 'ON' : 'OFF'} {'handleClick3 x'}
                 </button>
                 <br />
 
                 <button key="4" onClick={this.handleClick3.bind(this, '传参数')}>
-                    {this.state.isToggleOn ? 'ON' : 'OFF '} {'handleClick3 x'}
+                    {isToggleOn ? 'ON' : 'OFF '} {'handleClick3 x e 作为参数默认被传递'}
                 </button>
             </div>
         );

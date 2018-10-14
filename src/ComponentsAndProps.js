@@ -2,7 +2,7 @@
  * Created by yanghuan on 17/7/15.
  */
 
-import React, { PureComponent }from 'react';
+import React, { PureComponent } from 'react';
 import { render } from 'react-dom';
 import PropTypes from 'prop-types';
 

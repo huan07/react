@@ -2,8 +2,8 @@
  * Created by yanghuan on 18/8/18.
  */
 
-import React, { PureComponent } from 'react';
-import { render } from 'react-dom';
+import React, { PureComponent } from '../react.js';
+import { render } from '../react-dom.js';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 import rafSchedule from 'raf-schd';

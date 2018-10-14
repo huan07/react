@@ -1,13 +1,13 @@
 /**
  * Created by yanghuan on 18/9/1.
  */
-import React, { PureComponent } from 'react';
-import ReactDOM, { render } from 'react-dom';
+import React, { PureComponent } from '../react.js';
+import ReactDOM, { render, findDOMNode } from '../react-dom.js';
 
 {
     class Demo extends PureComponent {
         componentDidMount(){
-            const $this = ReactDOM.findDOMNode(this);
+            const $this = findDOMNode(this);
             $this.addEventListener('click', this.onDOMClick, false);
         }
 
@@ -25,6 +25,10 @@ import ReactDOM, { render } from 'react-dom';
                 <div onClick={this.onClick}>Demo 冒泡到documnet</div>
             );
         }
+
+        componentWillUnmount(){
+
+        }
     }
 
     render(<Demo />, document.getElementById('app'));
@@ -34,7 +38,7 @@ import ReactDOM, { render } from 'react-dom';
 {
     class Demo2 extends PureComponent {
         componentDidMount(){
-            const $parent = ReactDOM.findDOMNode(this);
+            const $parent = findDOMNode(this);
             const $child = $parent.querySelector('.child');
 
             $parent.addEventListener('click', this.onParentDOMClick, false);

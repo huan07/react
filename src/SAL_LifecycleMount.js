@@ -30,7 +30,7 @@ import { render } from '../react-dom.js';
 
         componentDidMount(){ // 生命周期内只调用一次
             console.log('4. render之后调用，此时DOM已经被渲染，可以通过this.getDOMNode()获取和操作DOM节点' +
-                '可以 setState , 然后去执行 render() '
+                '可以 setState '
             );
             this.setState({
                 mounting: false,

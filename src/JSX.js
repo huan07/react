@@ -2,14 +2,11 @@
  * Created by yanghuan on 17/7/15.
  */
 
-/*import React from 'react';
- import { render } from 'react-dom';*/
-
-import React from '../react.js';
-import { render } from '../react-dom.js';
+import React from 'react';
+import { render } from 'react-dom';
 
 {
-    const element = <h1>Hello, World!</h1>;
+    const element = <h1 className="myClassValue">Hello, World!</h1>;
 }
 
 {
@@ -26,9 +23,9 @@ import { render } from '../react-dom.js';
     // 2.JSX 也是一个表达式
     function getGreeting(user){
         if (user) {
-            return <h4 >Hello, {formatName(user)}!</h4>;
+            return <h4>Hello, {formatName(user)}!</h4>;
         }
-        return <h4 >Hello, Stranger.</h4>;
+        return <h4>Hello, Stranger.</h4>;
     }
 
     const element = (

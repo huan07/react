@@ -5,36 +5,41 @@ const webpack = require('webpack');
 
 var config = {
     entry: {
-        //JSX: './src/JSX.js', x
-        //RenderingElements: './src/RenderingElements.js', x
-        //ComponentsAndProps:'./src/ComponentsAndProps.js', x
-        //StateAndLifecycle:'./src/StateAndLifecycle.js', x
-        //HandlingEvents: './src/HandlingEvents.js', x
-        //ConditionalRendering: './src/ConditionalRendering.js', x
+        //JSX: './src/JSX.js', // x
+        //RenderingElements: './src/RenderingElements.js', // x
+        //ComponentsAndProps:'./src/ComponentsAndProps.js', // x
+        StateAndLifecycle: './src/StateAndLifecycle.js', // x
 
-        //Context:'./src/Context',
-        Context2: './src/Context2',
+        //ConditionalRendering: './src/ConditionalRendering.js',
 
-
-        //ForwardingRefs: './src/ForwardingRefs.js', // ?
+        //ForwardingRefs: './src/ForwardingRefs.js',
         //Reconciliation: './src/Reconciliation.js',
         //RefsAndTheDom: './src/RefsAndTheDom.js',
         //OptimizingPerformance:'./src/OptimizingPerformance.js',
         //OP_Immutable:'./src/OP_Immutable.js',
 
+        //x FaqAjax: './src/SAL_FaqAjax.js',
+
+        //FaqState: './src/SAL_FaqState.js',
+
+        // // //
+
+
+        //LifecycleMount:'./src/SAL_LifecycleMount.js',
+        //LifecycleUpdate: './src/SAL_LifecycleUpdate.js',
+
+
+        //HandlingEvents: './src/HandlingEvents.js',
 
         //SyntheticEvent:'./src/SyntheticEvent.js',
         //SyntheticEvent2: './src/SyntheticEvent2.js',
 
+        //FaqFunctions:'./src/FaqFunctions.js',
+        //FaqFunctions2:'./src/FaqFunctions2.js',
 
-        //
-        //x FaqAjax: './src/SAL_FaqAjax.js',
-        //x FaqFunctions:'./src/FaqFunctions.js',
-        //x FaqFunctions2:'./src/FaqFunctions2.js',
-        //FaqState: './src/SAL_FaqState.js',
 
-        //LifecycleMount:'./src/SAL_LifecycleMount.js',
-        //LifecycleUpdate: './src/SAL_LifecycleUpdate.js',
+        //Context:'./src/Context',
+        //Context2: './src/Context2',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -81,7 +86,7 @@ var config = {
     ],
 
     mode: 'development',
-    devtool: 'eval-source-map',
+    devtool: 'eval',
 
     devServer: {
         contentBase: './dist',

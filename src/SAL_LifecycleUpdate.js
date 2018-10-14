@@ -19,7 +19,7 @@ import { render } from '../react-dom.js';
             if (this.props.parentUpdating !== nextProps.parentUpdating) {
                 this.setState((prevState) => ({ propsChanged: !prevState.propsChanged }));
             }
-            console.log('1.1 child 组件接受到新的props[从父组件传递过来的]时被调用，通过 setState 触发render() ');
+            console.log('1.1 child 组件接受到新的props[从父组件传递过来的]时被调用，通过 setState');
         }
 
         shouldComponentUpdate(nextProps, nextState){
