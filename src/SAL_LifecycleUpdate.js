@@ -12,10 +12,11 @@ import { render } from 'react-dom';
         };
 
         componentWillReceiveProps(nextProps){
+            console.log('child-1.1 组件接受到新的props[从父组件传递过来的]时被调用，' +
+                '包含在条件语句中调用 setState ,性能考虑');
             if (this.props.parentUpdating !== nextProps.parentUpdating) { // better
                 this.setState((prevState) => ({ propsChanged: !prevState.propsChanged }));
             }
-            console.log('child-1.1 组件接受到新的props[从父组件传递过来的]时被调用，通过 setState');
         }
 
         shouldComponentUpdate(nextProps, nextState){
