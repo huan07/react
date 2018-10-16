@@ -24,8 +24,8 @@ var config = {
         //StateAndLifecycle: './src/StateAndLifecycle.js', // x
         //FaqState: './src/SAL_FaqState.js', // x
         //FaqAjax: './src/SAL_FaqAjax.js', // x to do json error
-        LifecycleMount:'./src/SAL_LifecycleMount.js', // x
-        //LifecycleUpdate: './src/SAL_LifecycleUpdate.js', // x
+        //LifecycleMount:'./src/SAL_LifecycleMount.js', // x
+        LifecycleUpdate: './src/SAL_LifecycleUpdate.js', // x
 
 
         //HandlingEvents: './src/HandlingEvents.js',
