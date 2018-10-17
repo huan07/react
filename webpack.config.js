@@ -13,8 +13,6 @@ var config = {
         //ForwardingRefs: './src/ForwardingRefs.js',
         //Reconciliation: './src/Reconciliation.js',
         //RefsAndTheDom: './src/RefsAndTheDom.js',
-        //OptimizingPerformance:'./src/OptimizingPerformance.js',
-        //OP_Immutable:'./src/OP_Immutable.js',
 
 
         // // //
@@ -25,7 +23,9 @@ var config = {
         //FaqState: './src/SAL_FaqState.js', // x
         //FaqAjax: './src/SAL_FaqAjax.js', // x to do json error
         //LifecycleMount:'./src/SAL_LifecycleMount.js', // x
-        LifecycleUpdate: './src/SAL_LifecycleUpdate.js', // x
+        //LifecycleUpdate: './src/SAL_LifecycleUpdate.js', // x
+        //OptimizingPerformance:'./src/OptimizingPerformance_shouldComponentUpdate.js', // x
+        OP_Immutable: './src/OP_Immutable.js', // x to add examples
 
 
         //HandlingEvents: './src/HandlingEvents.js',

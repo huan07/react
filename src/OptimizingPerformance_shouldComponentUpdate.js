@@ -10,7 +10,6 @@ function shouldComponentUpdate(nextProps, nextState){
 }
 
 class OptimisePerformance1 extends Component {
-
     state = { count: 1 };
 
     shouldComponentUpdate(nextProps, nextState){
@@ -27,55 +26,60 @@ class OptimisePerformance1 extends Component {
     render(){
         return (
             <button
-                onClick={() => this.setState(state => ({ count: state.count + 1 }))}
+                onClick={() => this.setState(prevState => ({ count: prevState.count + 1 }))}
             >
-                count: {`${ this.state.count} color: ${this.props.color}`} _x
+                {JSON.stringify(this.props)}<br />
+                {JSON.stringify(this.state)}<br />
+                _x
             </button>
         );
     }
 }
 
 class OptimisePerformance2 extends PureComponent {
-    // React.PureComponent 仅会进项浅比较，此时不需要自己写shouldComponentUpdate
-    // PureComponent 不能和 shouldComponentUpdate 一起使用，否则会warning
+    // PureComponent 浅比较
+    // 不能和 shouldComponentUpdate 一起使用，否则会warning
     state = { count: 1 };
 
     render(){
         return (
             <button
-                onClick={() => this.setState(state => ({ count: state.count + 1 }))}
+                onClick={() => this.setState(prevState => ({ count: prevState.count + 1 }))}
             >
-                count:{ this.state.count}color:{this.props.color}
+                {JSON.stringify(this.props)}<br />
+                {JSON.stringify(this.state)}<br />
+                _x
             </button>
         );
     }
 }
 
 
+//
 class ListOfWords extends PureComponent {
+    // 永远都不会去render this.props浅比较失败
     render(){
         return <div>{this.props.words.join(', ')}</div>;
     }
 }
 
 class WordAdder extends PureComponent {
-    constructor(props){
-        super(props);
-        this.state = {
-            words: ['marklar'],
-        };
-        this.handleClick = ::this.handleClick;
-    }
+    state = {
+        words: ['marklar'],
+    };
 
-    handleClick(){
-        // 会造成error   ！！！！！！！！！！！！！！！！
+    handleClick = () =>{
         const words = this.state.words;
-        words.push('marklar_error');
+        words.push('marklar_error'); // 会造成error   ！！！！！！！！！！！！！！！！
         this.setState({ words, });
-        // 然而并没有去render ？？？PureComponent失效了，浅比较？？？比较的是引用地址 ？？
-    }
+    };
 
     render(){
+        // Component => shouldComponentUpdate() default return true,
+        // 此处会调用render
+
+        // PureComponent => shouldComponentUpdate() 会去浅比较，this.state.words引用地址未变，
+        // 此处不会去调用render，不符合应用场景
         return (
             <div style={{ marginTop: '40px' }}>
                 <button onClick={this.handleClick}>button _x</button>
@@ -86,27 +90,23 @@ class WordAdder extends PureComponent {
 }
 
 
+//
 class WordAdder3 extends PureComponent {
-    constructor(props){
-        super(props);
-        this.state = {
-            words: ['marklar'],
-        };
-        this.handleClick = ::this.handleClick;
-        this.handleClick2 = ::this.handleClick2;
-    }
+    state = {
+        words: ['marklar'],
+    };
 
-    handleClick(){ // 使得改变对象的同时不会突变对象
+    handleClick = () =>{ // 使得改变对象的同时不会突变对象
         this.setState(prevState => ({
             words: prevState.words.concat(['marklar_betterUsedbutton1'])
         }));
-    }
+    };
 
-    handleClick2(){ // 使得改变对象的同时不会突变对象
+    handleClick2 = () =>{ // 使得改变对象的同时不会突变对象
         this.setState(prevState => ({
             words: [...prevState.words, 'marklar_betterUsedbutton2']
         }));
-    }
+    };
 
     render(){
         return (
@@ -122,18 +122,14 @@ class WordAdder3 extends PureComponent {
 const element = (
     <div>
         <OptimisePerformance1 color="red" />
-        <OptimisePerformance2 color="green" betterUsed />
+        <OptimisePerformance2 color="green" better />
 
         <WordAdder error />
-        <WordAdder3 betterUsed />
+        <WordAdder3 better />
     </div>
 );
 
 render(
-    element
-    , document.getElementById('app')
+    element,
+    document.getElementById('app')
 );
-
-
-// 使用 Immutable 数据结构
-// 追踪对象的改变 to add

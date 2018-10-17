@@ -57,8 +57,10 @@ import { render } from 'react-dom';
 
         shouldComponentUpdate(nextProps, nextState){
             // 性能优化点
-            // 使用内置的PureComponent 浅比较
-            // 无需编写shouldComponentUpdate，默认返回true
+            // 默认返回true
+
+            // 使用内置的PureComponent 浅比较，无需编写shouldComponentUpdate
+            // 不能与shouldComponentUpdate同时使用，否则会报错
             console.log('1.2 组件接受到新的props/state时被调用, ' +
                 '比较是否相同，' +
                 'return true才执行更新虚拟DOM, ' +
