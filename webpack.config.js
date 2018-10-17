@@ -25,7 +25,8 @@ var config = {
         //LifecycleMount:'./src/SAL_LifecycleMount.js', // x
         //LifecycleUpdate: './src/SAL_LifecycleUpdate.js', // x
         //OptimizingPerformance:'./src/OptimizingPerformance_shouldComponentUpdate.js', // x
-        OP_Immutable: './src/OP_Immutable.js', // x to add examples
+        //OP_Immutable: './src/OP_Immutable.js', // x to add examples
+        ListsAndKeys: './src/ListsAndKeys.js', // x
 
 
         //HandlingEvents: './src/HandlingEvents.js',
