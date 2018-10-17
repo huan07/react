@@ -2,29 +2,16 @@
  * Created by yanghuan on 17/11/12.
  */
 
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-// ref属性接受回调函数 组件装载，卸载之后，回调函数会立即执行
-
-// 1.DOM元素上添加ref
-// 组件装载(mount)时，用 DOM 元素作为参数回调 ref 函数，
-// 在组件卸载(unmounts)时，使用 null 作为参数回调函数
-
-// 2.类
-// ref回调函数接受的参数是装载的 组件实例 to_add example
-
-// 3.函数式组件 内部引用DOM元素、类组件
-
-// 4.对父组件暴露DOM节点 允许父代通过中间件将ref回调给子代的DOM节点 适用于类组件、函数式组件
-
-// 5. 无法控制子组件，最后使用findDOMNode()
-
-// 但是state更为清晰！！！！！！！！！！！！！
+// Refs 访问在 render 方法中创建的 DOM 节点或 React 元素
 
 
 // 在 DOM 元素上添加 Ref
-class CustomTextInput extends React.Component {
+// React 组件在加载时将 DOM 元素传入 ref 的回调函数，在卸载时则会传入 null。
+// 在 componentDidMount 或 componentDidUpdate 这些生命周期回调之前执行 ref 回调。
+class CustomTextInput extends Component {
     constructor(props){
         super(props);
         this.textInput = React.createRef();
@@ -51,13 +38,13 @@ class CustomTextInput extends React.Component {
         );
     }
 }
-{
-    render(<CustomTextInput />, document.getElementById('app'));
-}
+
+render(<CustomTextInput />, document.getElementById('app'));
+
 
 // 为 类(Class) 组件添加 Ref
 {
-    class AutoFocusTextInput extends React.Component {
+    class AutoFocusTextInput extends Component {
         constructor(props){
             super(props);
             this.textInput = React.createRef();
@@ -77,7 +64,9 @@ class CustomTextInput extends React.Component {
     render(<AutoFocusTextInput />, document.getElementById('app2'));
 }
 
-// 在函数式组件内部使用 ref
+
+// 在函数式组件内部使用 ref 来引用一个 DOM 元素或者 类(class)组件：
+// React 更早的发布版
 {
     function CustomTextInput3(props){
         // textInput必须在这里声明，所以 ref 回调可以引用它
@@ -91,7 +80,11 @@ class CustomTextInput extends React.Component {
             <div>
                 <input
                     type="text"
-                    ref={(input) => textInput = input}
+                    ref={(node) =>{
+                        // 此处等待DOM挂载后执行的
+                        // 回调函数的传参数 => 原生DOM节点
+                        return textInput = node;
+                    }}
                 />
 
                 <input
@@ -106,7 +99,7 @@ class CustomTextInput extends React.Component {
     render(<CustomTextInput3 />, document.getElementById('app3'));
 }
 
-// 对父组件暴露 DOM 节点
+// 对父组件暴露 DOM 节点  to do
 {
 
 }
@@ -115,7 +108,7 @@ class CustomTextInput extends React.Component {
 // 如果 ref 回调以内联函数的方式定义，在更新期间会被调用两次，第一次参数是 null ，之后参数是 DOM 元素。
 // 通过将 ref 的回调函数定义成类的绑定函数的方式可以避免上述问题
 {
-    class CustomTextInput4 extends React.Component {
+    class CustomTextInput4 extends Component {
         constructor(props){
             super(props);
             this.textInput = null;
@@ -153,5 +146,5 @@ class CustomTextInput extends React.Component {
         }
     }
 
-    render(<CustomTextInput4 />, document.getElementById('app4'));
+    //render(<CustomTextInput4 />, document.getElementById('app4'));
 }

@@ -11,8 +11,7 @@ var config = {
         //ConditionalRendering: './src/ConditionalRendering.js',
 
         //ForwardingRefs: './src/ForwardingRefs.js',
-        //Reconciliation: './src/Reconciliation.js',
-        //RefsAndTheDom: './src/RefsAndTheDom.js',
+        RefsAndTheDom: './src/RefsAndTheDom.js', // x to do
 
 
         // // //
@@ -26,7 +25,7 @@ var config = {
         //LifecycleUpdate: './src/SAL_LifecycleUpdate.js', // x
         //OptimizingPerformance:'./src/OptimizingPerformance_shouldComponentUpdate.js', // x
         //OP_Immutable: './src/OP_Immutable.js', // x to add examples
-        ListsAndKeys: './src/ListsAndKeys.js', // x
+        //ListsAndKeys: './src/ListsAndKeys.js', // x
 
 
         //HandlingEvents: './src/HandlingEvents.js',
@@ -38,6 +37,9 @@ var config = {
 
         //Context:'./src/Context',
         //Context2: './src/Context2',
+
+
+        //Reconciliation: './src/Reconciliation.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
